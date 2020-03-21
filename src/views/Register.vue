@@ -3,14 +3,20 @@
     <img class="logo" src="../assets/logo.png" alt="../assets/vinny.jpeg">
     <div class="main_content">
       <div class="descr">Cool, dass du in <span class="location_plz">{{ city }} - {{ plz }}</span> helfen möchtest. Teil uns noch ein paar Infos über dich mit</div>
+      <p class="error" v-if="errors.length != 0">
+        <b class="error">Bitte korrigiere den/die folgenden Fehler:</b>
+        <ul>
+          <li class="error" :key="error" v-for="error in errors">{{ error }}</li>
+        </ul>
+    </p>
       <div class="inputs">
-        <input type="text" name="name"  class="input_field" id="input_name" placeholder="Name">
-        <input type="number" name="number"  class="input_field" id="input_number" placeholder="Handynummer">
-        <input type="text" name="email"  class="input_field" id="input_mail" placeholder="E-Mail">
+        <input type="text" name="name" v-model="name"  class="input_field" id="input_name" placeholder="Name">
+        <input type="number" name="number" v-model="number"  class="input_field" id="input_number" placeholder="Handynummer">
+        <input type="text" name="email" v-model="email"  class="input_field" id="input_mail" placeholder="E-Mail">
       </div>
       <div class="bottom">
         <div class="back">Zurück</div>
-        <img v-on="request" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
+        <img @click="request" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
       </div>
     </div>
   </div>
@@ -35,34 +41,33 @@ export default {
     }
   },
   methods: {
+    request: function () {
+      if (this.checkForm()) {
+        //send post request
+      }
+    },
 
-  request: function () {
-   // if (checkForm())
+    checkForm: function () {
+          this.errors = [];
+          if (this.name && this.number && this.email && this.validateEmail(this.email)) {
+            return true;
+          }
+          if (!this.name) {
+            this.errors.push('Name benötigt.');
+          }
+          if (!this.number) {
+            this.errors.push('Handynummer benötigt.');
+          }
+          if (!this.validateEmail(this.email)) {
+            this.errors.push('E-Mail ist nicht korrekt.');
+          }
+        },
 
-  },
-
-  checkForm: function (e) {
-        if (this.name && this.number && this.email) {
-          return true;
-        }
-
-        this.errors = [];
-
-        if (!this.name) {
-          this.errors.push('Name required.');
-        }
-        if (!this.age) {
-          this.errors.push('Age required.');
-        }
-
-        e.preventDefault();
-      },
-
-  validateEmail: function (email) {
-      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
+    validateEmail: function (email) {
+        var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
     }
-  }
 }
 
 </script>
@@ -82,11 +87,26 @@ export default {
   .descr {
     margin-bottom: 37px;
     word-wrap:break-word;
+
+    .location_plz {
+      font-weight: 600;
+    }
   }
 
-  .location_plz {
-    font-weight: 600;
+  .error {
+    font-family: Helvetica;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    text-align: center;
+
+    color: #E73454;
   }
+
+
+
 
   .inputs{
     width: 50%;

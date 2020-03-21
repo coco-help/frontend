@@ -12,9 +12,12 @@
           placeholder="SMS CODE"
           v-model="smsCode">
         <br>
-        <a class="retry">Code erneut senden</a>
-        <p class="back">Zurück</p>
-        <img @click="clickNext" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
+        <a @click="onceAgain" class="retry">Code erneut senden</a>
+
+        <div class="bottom">
+          <div @click="clickBack" class="back">Zurück</div>
+          <img @click="clickNext" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
+        </div>
     </div>
     <div class="column is-half" id="half">
       <p class="motivation">?Motivational Text?</p>
@@ -32,44 +35,52 @@ export default {
   data() {
     return{
       number: null,
-      smsCode: ''
+      smsCode: '',
+      realCode: ''
     }
   },
 
+
+
   methods:{
+  clickBack:function(){
+
+  },
+
+  sendCode: function(){
+
+  },
+
   clickNext: function (){
     //sendCode(this.smsCode);
+  },
+
+  onceAgain: function(){
   }
 }
 };
 
-
-
-
-
-
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 
 #auth {
   text-align: center;
 }
 #verify {
-  height: 21px;
+  margin: 10px;
   font-weight: 500;
   font-size: 18px;
   line-height: 21px;
   color: #000000;
 }
 #helpernumber {
-  margin-top: 15px;
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 3px;
 }
 .input_field {
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 18px;
   width: 232px;
   height: 49px;
@@ -100,5 +111,21 @@ a {
 #half {
   background-color: #e73454;
 }
+.column{
+  padding: 80px;
+}
+
+.bottom {
+  display: inline;
+
+  .back {
+    float: left;
+    margin-top: 15px;
+  }
+  .arrow_right {
+    float: right;
+  }
+}
+
 
 </style>}

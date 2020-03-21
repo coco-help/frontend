@@ -10,7 +10,10 @@
 
 $breakpoint: 768px;
 
-
+body, html{
+  margin: 0px;
+  padding: 0px;
+}
 // @media (min-width: $breakpoint) {
 // desktop style
 // }
