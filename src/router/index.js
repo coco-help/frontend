@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
 import Auth from '../views/Auth.vue'
+import HomeSignedIn from '../views/HomeSignedIn.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/auth',
     name: 'Auth',
     component: Auth
+  },
+  {
+    path: '/h',
+    name: 'HomeSignedIn',
+    component: HomeSignedIn
   },
   {
     path: '/about',
