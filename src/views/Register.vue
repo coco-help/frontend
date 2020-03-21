@@ -1,13 +1,18 @@
 <template>
   <div class="register">
     <img class="logo" src="../assets/logo.png" alt="../assets/vinny.jpeg">
-    <div class="descr">Cool, dass du in <span class="location_plz">{{ city }} - {{ plz }}</span> helfen willst. Teil uns noch ein paar Infos über dich mit</div>
-    <div class="inputs">
-      <input type="text" name="name"  class="input_field" id="input_name" placeholder="Name">
-      <input type="number" name="number"  class="input_field" id="input_number" placeholder="Handynummer">
-      <input type="text" name="email"  class="input_field" id="input_mail" placeholder="E-Mail">
+    <div class="main_content">
+      <div class="descr">Cool, dass du in <span class="location_plz">{{ city }} - {{ plz }}</span> helfen möchtest. Teil uns noch ein paar Infos über dich mit</div>
+      <div class="inputs">
+        <input type="text" name="name"  class="input_field" id="input_name" placeholder="Name">
+        <input type="number" name="number"  class="input_field" id="input_number" placeholder="Handynummer">
+        <input type="text" name="email"  class="input_field" id="input_mail" placeholder="E-Mail">
+      </div>
+      <div class="bottom">
+        <div class="back">Zurück</div>
+        <img v-on="request" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
+      </div>
     </div>
-    <img class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
   </div>
 </template>
 
@@ -21,11 +26,45 @@ export default {
 
   data() {
     return {
+      errors: [],
+      name: null,
+      number: null,
+      email: null,
       city: 'Berlin',
       plz:'13355'
     }
   },
+  methods: {
+
+  request: function () {
+   // if (checkForm())
+
+  },
+
+  checkForm: function (e) {
+        if (this.name && this.number && this.email) {
+          return true;
+        }
+
+        this.errors = [];
+
+        if (!this.name) {
+          this.errors.push('Name required.');
+        }
+        if (!this.age) {
+          this.errors.push('Age required.');
+        }
+
+        e.preventDefault();
+      },
+
+  validateEmail: function (email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+  }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -35,29 +74,62 @@ export default {
   height: 33px;
 }
 
-.descr {
-  margin-bottom: 37px;
-}
-
-.location_plz {
-  font-weight: 600;
-}
-
-.inputs{
+.main_content {
   margin: auto;
-  width: 50%;
+  width: 315px;
 
-  .input_field {
-    margin: auto;
-    margin-bottom: 39px;
-    display: block;
-    font-size: 18px;
-    width: 315px;
-    height: 50px;
-    border: 1.6px solid #000000;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
+
+  .descr {
+    margin-bottom: 37px;
+    word-wrap:break-word;
+  }
+
+  .location_plz {
+    font-weight: 600;
+  }
+
+  .inputs{
+    width: 50%;
+
+    .input_field {
+      margin: auto;
+      margin-bottom: 39px;
+      display: block;
+      font-size: 18px;
+      width: 315px;
+      height: 50px;
+      border: 1.6px solid #000000;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+
+    input:focus {
+      outline: 3px solid #E73454;
+      box-sizing: border-box;
+      border: none;
+      filter: blur(0.1px);
+    }
+  }
+
+  .bottom {
+    display: inline;
+
+    .back {
+      margin-top: 15px;
+      float: left;
+      width: 55px;
+      height: 19px;
+      font-family: Work Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      color: #A5A5A5;
+    }
+    .arrow_right {
+      float: right;
+    }
+  }
 
 }
 

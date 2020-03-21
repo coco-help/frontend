@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HomeMainBlock msg="Welcome HHHHIIII to Your Vue.js App"/>
+    <HomeMainBlock/>
     <p>More info on <a href="https://devpost.com/software/corona-connect">https://devpost.com/software/corona-connect</a></p>
   </div>
 </template>
