@@ -1,7 +1,7 @@
 <template>
   <div class="auth">
     <div id="verify">bestätigungs SMS code</div>
-    <input type="" name="sms"  class="input_field" id="sms_auth" placeholder="SMS Code">
+    <input type="number" name="sms"  class="input_field" id="sms_auth" placeholder="SMS Code">
   </div>
 </template>
 
