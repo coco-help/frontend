@@ -2,7 +2,7 @@
   <div class="register">
     <img class="logo" src="../assets/logo.png" alt="../assets/vinny.jpeg">
     <div class="main_content">
-      <div class="descr">Cool, dass du in <span class="location_plz">{{ city }} - {{ zip }}</span> helfen möchtest. Teil uns noch ein paar Infos über dich mit</div>
+      <div class="descr">Cool, dass du in <span class="location_plz">{{ zip }}</span> helfen möchtest. Teil uns noch ein paar Infos über dich mit</div>
       <p class="error" v-if="errors.length != 0">
         <b class="error">Bitte korrigiere den/die folgenden Fehler:</b>
         <ul>
@@ -37,7 +37,6 @@ export default {
       name: null,
       number: null,
       email: null,
-      city: null,
       zip: null
     }
   },
@@ -45,9 +44,10 @@ export default {
   mounted() {
     this.zip = this.$store.getters.getZIP
     //do zip lookup with backend
+    //TODO: REMOVE THIS. THIS DOES NOT LOOKUP THE CITY NAME
     axios
       .get('https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/phone', {params: { zip: this.zip}})
-      .then(response => (this.city = response))
+      .then(resp => console.log(resp))
       .catch(err => console.log("Axios-Fehler: " , err))
   },
   methods: {
