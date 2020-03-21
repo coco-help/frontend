@@ -44,11 +44,11 @@ export default {
 
   methods:{
   clickBack:function(){
-
+    this.$router.push({ path: '/register' });
   },
 
   sendCode: function(){
-
+    //send smsCode
   },
 
   clickNext: function (){
@@ -110,6 +110,7 @@ a {
 }
 #half {
   background-color: #e73454;
+  height: auto;
 }
 .column{
   padding: 80px;
@@ -121,9 +122,11 @@ a {
   .back {
     float: left;
     margin-top: 15px;
+    cursor: pointer;
   }
   .arrow_right {
     float: right;
+    cursor: pointer;
   }
 }
 
