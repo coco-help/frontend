@@ -2,7 +2,7 @@
   <div class="register">
     <img class="logo" src="../assets/logo.png" alt="../assets/vinny.jpeg">
     <div class="main_content">
-      <div class="descr">Cool, dass du in <span class="location_plz">{{ city }} - {{ plz }}</span> helfen möchtest. Teil uns noch ein paar Infos über dich mit</div>
+      <div class="descr">Cool, dass du in <span class="location_plz">{{ city }} - {{ zip }}</span> helfen möchtest. Teil uns noch ein paar Infos über dich mit</div>
       <p class="error" v-if="errors.length != 0">
         <b class="error">Bitte korrigiere den/die folgenden Fehler:</b>
         <ul>
@@ -37,12 +37,18 @@ export default {
       number: null,
       email: null,
       city: 'Berlin',
-      plz:'13355'
+      zip: null
     }
+  },
+
+  created() {
+    this.zip = this.$store.getters.getZIP
+    //do zip lookup with backend
   },
   methods: {
     request: function () {
       if (this.checkForm()) {
+        console.log("die zip: ", this.$store.getters.getZIP)
         //send post request
       }
     },

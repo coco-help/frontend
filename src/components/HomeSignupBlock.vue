@@ -17,7 +17,7 @@
       </span>
 
       <span class="submitButton" @click="register">
-          <span>Hilfe anbieten</span><img v-on="request" class="arrow_right" src="../assets/arrow_white.svg">
+          <span>Hilfe anbieten</span><img @click="register" class="arrow_right" src="../assets/arrow_white.svg">
       </span>
 
     </div>
@@ -27,12 +27,15 @@
 <script>
 export default {
   name: "HomeSignupBlock",
-  props: {
-    zip: Number
+  data() {
+    return {
+      zip: null
+    }
   },
   methods:{
     register:function(){
-      this.$router.push({ path: '/register' , params: { zip: this.zip } });
+      this.$store.commit('inputZIP', this.zip)
+      this.$router.push({ path: '/register'});
     }
   }
 };
