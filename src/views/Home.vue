@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Coco logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome HHHHIIII to Your Vue.js App"/>
+    <HomeMainBlock msg="Welcome HHHHIIII to Your Vue.js App"/>
+    <p>More info on <a href="https://devpost.com/software/corona-connect">https://devpost.com/software/corona-connect</a></p>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HomeMainBlock from '@/components/HomeMainBlock.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    HomeMainBlock
   }
 }
 </script>
+<style lang="scss" scoped>
+.home{
+  padding:0px;
+}
+
+</style>
