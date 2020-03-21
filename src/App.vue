@@ -10,7 +10,8 @@
 
 $breakpoint: 768px;
 
-body, html{
+body,
+html {
   margin: 0px;
   padding: 0px;
 }
@@ -29,5 +30,20 @@ body, html{
   color: #000;
   width: 100vw;
   overflow: hidden;
+}
+
+p {
+  font-size: 16px;
+  color: #303030;
+}
+b {
+  font-weight: 600;
+}
+h1 {
+}
+h2 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 125%;
 }
 </style>
