@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 // @ is an alias to /src
 
 export default {
@@ -36,19 +37,22 @@ export default {
       name: null,
       number: null,
       email: null,
-      city: 'Berlin',
+      city: null,
       zip: null
     }
   },
 
-  created() {
+  mounted() {
     this.zip = this.$store.getters.getZIP
     //do zip lookup with backend
+    axios
+      .get('https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/phone', {params: { zip: this.zip}})
+      .then(response => (this.city = response))
+      .catch(err => console.log("Axios-Fehler: " , err))
   },
   methods: {
     request: function () {
       if (this.checkForm()) {
-        console.log("die zip: ", this.$store.getters.getZIP)
         //send post request
       }
     },
