@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Coco logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome HHHHIIII to Your Vue.js App"/>
+    <HomeMainBlock/>
+    <Content/>
+    <Footer/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HomeMainBlock from '@/components/HomeMainBlock.vue'
+import Footer from '@/components/footer.vue'
+import Content from '@/components/content.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    HomeMainBlock,
+    Footer,
+    Content
   }
 }
 </script>
+<style lang="scss" scoped>
+@media (min-width: 768px) {
+  .home {
+    width: 60vw;
+  }
+}
+.home{
+  padding:0px;
+}
+
+
+</style>
