@@ -1,18 +1,13 @@
 <template>
   <div class="HomeMainBlock">
     <div class="landingBlock">
-      <a
-        href="tel:+1 956 247 4513"
-        class="telnum"
-      >+1 956 247 4513</a>
+      <a href="tel:+1 956 247 4513" class="telnum">+1 956 247 4513</a>
       <div class="telnum-text">..wenn du Hilfe benötigst</div>
-      <img
-        src="../assets/logo.png"
-        alt="COCO"
-        class="logo"
-      >
+      <img src="../assets/logo.png" alt="COCO" class="logo" />
       <div class="illustration"></div>
-      <div class="infotext"> Hilf zur Risikogruppe gehörigen Nachbarn, ihren Alltag trotz Corona so normal wie möglich zu gestalten.</div>
+      <div
+        class="infotext"
+      >Hilf zur Risikogruppe gehörigen Nachbarn, ihren Alltag trotz Corona so normal wie möglich zu gestalten.</div>
     </div>
     <HomeSignupBlock />
   </div>
@@ -61,24 +56,43 @@ textarea:focus,
 button:focus {
   outline: none;
 }
+.illustration {
+  position: absolute;
+  background: url("../assets/Illu.png");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 15vh;
+  width: 100%;
+  left: 10%;
+  height: 33vh;
+}
+.infotext {
+  position: absolute;
+  top: 40vh;
+  font-weight: 300;
+  max-width: 80vw;
+  font-size: 3vh;
+  margin-left: 10vw;
+}
 @media (min-width: 768px) {
   .HomeMainBlock {
     position: relative;
-    min-height: 70vh;
+    min-height: 90vh;
   }
   .logo {
-      position: absolute;
-      left: 3vw;
-      top: 3vh;
-      width: 18vh;
-    }
+    position: absolute;
+    left: 60px;
+    top: 30px;
+    height: 40px;
+  }
   .landingBlock {
     position: relative;
     width: 60vw;
   }
   .infotext {
     position: absolute;
-    top: 40vh;
+    top: 50vh;
     font-weight: 300;
     max-width: 30vw;
     font-size: 3vh;
@@ -86,6 +100,12 @@ button:focus {
   }
 }
 @media (max-width: 768px) {
+  .logo {
+    position: absolute;
+    left: 30px;
+    top: 44px;
+    height: 40px;
+  }
   .landingBlock {
     position: relative;
     width: 100vw;
@@ -96,30 +116,15 @@ button:focus {
       top: 3vh;
       width: 12vh;
     }
+    .illustration {
+      height: 23vh;
+      left: 5%;
+    }
   }
   .signupBlock {
     position: relative;
     width: 100vw;
     min-height: 30vh;
   }
-}
-.illustration {
-  position: absolute;
-  background: url("../assets/Illu.png");
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  top: 15vh;
-  width: 100%;
-  left: 0%;
-  height: 23vh;
-}
-.infotext {
-  position: absolute;
-  top: 40vh;
-  font-weight: 300;
-  max-width: 80vw;
-  font-size: 3vh;
-  margin-left: 10vw;
 }
 </style>

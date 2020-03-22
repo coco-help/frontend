@@ -8,8 +8,7 @@
       />
       <div class="main_content">
         <div class="descr">
-          Cool, dass du in
-          <span class="location_plz">{{ zip }}</span> helfen möchtest. Teil uns noch ein paar Infos über dich mit
+          Willkommen zurück! Gib deine Nummer ein um weiter zu helfen.
         </div>
         <div
           class="error"
@@ -25,15 +24,6 @@
           </ul>
         </div>
         <div class="inputs">
-          <div class="mini">Name</div>
-          <input
-            type="text"
-            name="name"
-            v-model="name"
-            class="input_field"
-            id="input_name"
-            placeholder=" Max Mustermann"
-          />
           <div class="mini">Nummer</div>
           <input
             type="tel"
@@ -44,21 +34,8 @@
             id="input_number"
             placeholder=" +49 123 456789"
           />
-          <div class="mini">E-Mail</div>
-          <input
-            type="text"
-            name="email"
-            v-model="email"
-            class="input_field"
-            id="input_mail"
-            placeholder=" ichwillhelfen@gmail.com"
-          />
         </div>
         <div class="bottom">
-          <div
-            class="back"
-            @click="$router.go(-1)"
-          >Zurück</div>
           <img
             @click="request"
             class="arrow_right"
@@ -73,11 +50,11 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 // @ is an alias to /src
 
 export default {
-  name: "Register",
+  name: "Login",
   components: {},
 
   data() {
@@ -102,77 +79,23 @@ export default {
   methods: {
     request: function() {
       if (this.checkForm()) {
-        axios
-          .post(
-            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/register",
-            {
-              name: this.name,
-              zip: this.$route.query.zip,
-              phone: this.number,
-              email: this.email
-            }
-          )
-          .then(res => {
-            if (res.data.phone) {
-              this.$router.push({
-                name: "Auth",
-                params: { phone: res.data.phone }
-              });
-            }
-          })
-          .catch(() => {
-              this.login();
-
-          });
-      }
-    },
-    login: function() {
-        axios
-          .post(
-            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/login/"+this.number,
-            {
-            }
-          )
-          .then(res => {
-            if (res.data.message=="user_message_sent") {
-              this.$router.push({
-                name: "Auth",
-                params: { phone: this.number }
-              });
-
-            }
-          });
-
+        //request number and login
+        }
     },
 
-    checkForm: function() {
-      this.errors = [];
-      if (
-        this.name &&
-        this.number &&
-        this.email &&
-        this.validateEmail(this.email)
-      ) {
-        return true;
-      }
-      if (!this.name) {
-        this.errors.push("Name benötigt.");
-      }
-      if (!this.number) {
-        this.errors.push("Handynummer benötigt.");
-      }
-      if (!this.validateEmail(this.email)) {
-        this.errors.push("E-Mail ist nicht korrekt.");
-      }
-    },
     phoneValidator: function() {
       if (this.number.startsWith("0")) {
         this.number = "+49" + this.number.substring(1);
       }
     },
-    validateEmail: function(email) {
-      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
+    checkForm: function() {
+      this.errors = [];
+      if (this.number) {
+        return true;
+      }
+      if (!this.number) {
+        this.errors.push("Handynummer benötigt.");
+      }
     }
   }
 };
@@ -269,6 +192,10 @@ export default {
     }
     .arrow_right {
       float: right;
+      cursor: pointer;
+      &:hover {
+        opacity: 75%;
+      }
     }
   }
 }

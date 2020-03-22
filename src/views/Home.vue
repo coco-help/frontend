@@ -27,7 +27,13 @@ export default {
     width: 60vw;
   }
 }
+@media (max-width: 768px) {
+  .home {
+    width: 100vw;
+  }
+}
 .home{
+  position: relative;
   padding:0px;
 }
 
