@@ -14,6 +14,7 @@
           max="9999"
           v-model="smsCode"
           @input="clipInput"
+          @keyup.enter="clickNext"
         />
         <a @click="onceAgain" class="retry">Code erneut senden</a>
         <p class="notApproved">{{ notApproved }}</p>
@@ -30,7 +31,7 @@
       </div>
     </div>
     <div class="b">
-      <p class="motivation">?Motivational Text?</p>
+      <p class="motivation"></p>
     </div>
   </div>
 </template>

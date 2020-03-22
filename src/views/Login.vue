@@ -50,7 +50,7 @@
 </template>
 
 <script>
-//import axios from "axios";
+import axios from "axios";
 // @ is an alias to /src
 
 export default {
@@ -79,7 +79,7 @@ export default {
   methods: {
     request: function() {
       if (this.checkForm()) {
-        //request number and login
+        this.login();
         }
     },
 
@@ -96,6 +96,21 @@ export default {
       if (!this.number) {
         this.errors.push("Handynummer benötigt.");
       }
+    },
+    login: function() {
+        axios
+          .post(
+            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/login/"+this.number,{}
+          )
+          .then(res => {
+            if (res.data.message=="user_message_sent") {
+              this.$router.push({
+                name: "Auth",
+                params: { phone: this.number }
+              });
+            }
+          });
+
     }
   }
 };
@@ -178,18 +193,6 @@ export default {
   .bottom {
     display: inline;
 
-    .back {
-      margin-top: 15px;
-      float: left;
-      width: 55px;
-      height: 19px;
-      font-family: Work Sans;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 19px;
-      color: #a5a5a5;
-    }
     .arrow_right {
       float: right;
       cursor: pointer;

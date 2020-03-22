@@ -33,6 +33,7 @@
             class="input_field"
             id="input_name"
             placeholder=" Max Mustermann"
+            @keyup.enter="request"
           />
           <div class="mini">Nummer</div>
           <input
@@ -43,6 +44,7 @@
             class="input_field"
             id="input_number"
             placeholder=" +49 123 456789"
+            @keyup.enter="request"
           />
           <div class="mini">E-Mail</div>
           <input
@@ -52,6 +54,7 @@
             class="input_field"
             id="input_mail"
             placeholder=" ichwillhelfen@gmail.com"
+            @keyup.enter="request"
           />
         </div>
         <div class="bottom">
@@ -68,7 +71,7 @@
         </div>
       </div>
     </div>
-    <div class="b">text</div>
+    <div class="b"></div>
   </div>
 </template>
 
@@ -137,7 +140,8 @@ export default {
             if (res.data.message=="user_message_sent") {
               this.$router.push({
                 name: "Auth",
-                params: { phone: this.number }
+                params: { phone: this.number ,
+                zip: this.zip }
               });
 
             }
@@ -167,7 +171,9 @@ export default {
     },
     phoneValidator: function() {
       if (this.number.startsWith("0")) {
-        this.number = "+49" + this.number.substring(1);
+        this.number = "+49" + this.number.substring(1).replace(" ","");
+      }else{
+       this.number = this.number.replace(" ","");
       }
     },
     validateEmail: function(email) {
