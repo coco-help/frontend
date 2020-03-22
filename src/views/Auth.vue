@@ -50,7 +50,7 @@ export default {
   sendCode() {
     axios
       .post('https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/register', {body: this.smsCode})
-      .then(response => (console.log(response)))
+      .then(response => (this.realCode = response))
       .catch(err => console.log("Axios-Fehler: " , err))
   },
 
