@@ -99,8 +99,7 @@ export default {
 <style lang="scss" scoped>
 
 .logo {
-  width: 82px;
-  height: 33px;
+  height: 40px;
   margin: 44px 30px 0;
 }
 

@@ -1,18 +1,13 @@
 <template>
   <div class="HomeMainBlock">
     <div class="landingBlock">
-      <a
-        href="tel:+1 956 247 4513"
-        class="telnum"
-      >+1 956 247 4513</a>
+      <a href="tel:+1 956 247 4513" class="telnum">+1 956 247 4513</a>
       <div class="telnum-text">..wenn du Hilfe benötigst</div>
-      <img
-        src="../assets/logo.png"
-        alt="COCO"
-        class="logo"
-      >
+      <img src="../assets/logo.png" alt="COCO" class="logo" />
       <div class="illustration"></div>
-      <div class="infotext"> Hilf zur Risikogruppe gehörigen Nachbarn, ihren Alltag trotz Corona so normal wie möglich zu gestalten.</div>
+      <div
+        class="infotext"
+      >Hilf zur Risikogruppe gehörigen Nachbarn, ihren Alltag trotz Corona so normal wie möglich zu gestalten.</div>
     </div>
     <HomeSignupBlock />
   </div>
@@ -67,11 +62,11 @@ button:focus {
     min-height: 70vh;
   }
   .logo {
-      position: absolute;
-      left: 3vw;
-      top: 3vh;
-      width: 18vh;
-    }
+    position: absolute;
+    left: 60px;
+    top: 30px;
+    height: 40px;
+  }
   .landingBlock {
     position: relative;
     width: 60vw;
@@ -86,6 +81,12 @@ button:focus {
   }
 }
 @media (max-width: 768px) {
+  .logo {
+    position: absolute;
+    left: 30px;
+    top: 44px;
+    height: 40px;
+  }
   .landingBlock {
     position: relative;
     width: 100vw;

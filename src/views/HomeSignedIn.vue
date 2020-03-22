@@ -79,7 +79,7 @@ export default {
   .header {
     .logo {
       margin-top: 44px;
-      height: 33px;
+      height: 40px;
       width: 82px;
     }
   }
