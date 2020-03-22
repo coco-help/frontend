@@ -38,14 +38,18 @@ export default {
   width: 100%;
 
   img {
-    width: 100%;
+    width: 50%;
+    margin:5vh;
+    @media (max-width: 768px) {
+      display: none;
+  }
   }
   .slogan {
-    margin-top: 10vh;
-    margin-left: 10vh;
+    margin-top: 10%;
+    margin-left: 10%;
     text-align: left;
     font-weight: 300;
-    max-width: 30vw;
+    max-width: 70%;
     font-size: 3vh;
   }
   .journey {
