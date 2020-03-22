@@ -6,12 +6,7 @@
         </div>
         <div class="content">
             <h2>Uhrsprung</h2>
-            <p>Anfang des Jahres 2020 hat eine neue Art von Virus aufgrund seiner unerwarteten Ausbreitungsgeschwindigkeit damit begonnen, die Schlagzeilen überall auf der Welt zu kontrollieren.
-
-Von seinem Ursprung auf einem Markt in Wuhan in China im Dezember 2019 bis hin zu Ländern, die so weit entfernt wie die Vereinigten Staaten von Amerika sind, hat der Virus, dessen offizieller Name COVID-19 lautet, tausende Menschen mit einer steigenden Todesrate Anfang des Jahres 2020 hat eine neue Art von Virus aufgrund seiner unerwarteten Ausbreitungsgeschwindigkeit damit begonnen, die Schlagzeilen überall auf der Welt zu kontrollieren.
-
-Von seinem Ursprung auf einem Markt in Wuhan in China im Dezember 2019 bis hin zu Ländern, die so weit entfernt wie die Vereinigten Staaten von Amerika sind, hat der Virus, dessen offizieller Name COVID-19 lautet, tausende Menschen mit einer steigenden Todesrate</p>
-            <a></a>
+            <a>link</a>
         </div>
     </div>
 </template>
