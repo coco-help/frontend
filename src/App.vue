@@ -23,7 +23,7 @@ html {
 // }
 
 #app {
-  position: relative;
+  position: absolute;
   font-family: "Work Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

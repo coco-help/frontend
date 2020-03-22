@@ -81,6 +81,7 @@ button:focus {
   }
   .HomeSignupBlock {
     position: fixed;
+    z-index: 3;
     top: 0;
     right: 0;
     width: 40vw;

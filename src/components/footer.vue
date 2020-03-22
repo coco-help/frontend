@@ -1,38 +1,35 @@
 <template>
   <div class="Footer">
-    <div class="columns">
-      <div class="column is-three-quarters">
-        <img
-          class="logo"
-          src="../assets/logo.png"
-        >
-        <br>
-        <div class="links">
-          <a
-            class="about"
-            href=""
-            @click="clickAbout"
-          >About</a><br>
-          <a
-            href=""
-            @click="clickImpressum"
-          >Impressum</a><br>
-          <a
-            href=""
-            @click="clickDatenschutz"
-          >Datenschutz</a><br>
-        </div>
-        <p>coco - corona connect 2020</p>
+    <div class="left">
+      <img
+        class="logo"
+        src="../assets/logo.png"
+      >
+      <br>
+      <div class="links">
+        <a
+          class="about"
+          href=""
+          @click="clickAbout"
+        >About</a><br>
+        <a
+          href=""
+          @click="clickImpressum"
+        >Impressum</a><br>
+        <a
+          href=""
+          @click="clickDatenschutz"
+        >Datenschutz</a><br>
       </div>
-      <div class="column">
-        <a href="https://devpost.com/software/corona-connect"><img
-          src="../assets/wirvsvirus.png"
-          class="wirvsvirus"
-        ></a>
-
-      </div>
+      <p>coco - corona connect 2020</p>
     </div>
+
+    <a href="https://devpost.com/software/corona-connect"><img
+        src="../assets/wirvsvirus.png"
+        class="wirvsvirus"
+      ></a>
   </div>
+
 </template>
 
 <script>
@@ -65,26 +62,23 @@ export default {
   background: #f5f5f5;
   min-height: 30vh;
   position: relative;
-  width: 100vh;
+  width: 100%;
   overflow: hidden;
 }
 @media (min-width: 768px) {
-  .Footer {
-    position: relative;
-    width: 60vw;
-  }
 }
 @media (max-width: 768px) {
-    .Footer {
-      position: absolute;
-      left: 5vw;
-      top: 3vh;
-      width: 12vh;
-    }
-  }
+}
 
-img {
-  height: 30px;
+.logo {
+  height: auto;
+  width:20%;
+  margin-top:1vh;
+}
+
+.left {
+  position: relative;
+  padding:5vw;
 }
 
 .links {
@@ -103,7 +97,10 @@ p {
 }
 
 .wirvsvirus {
-  height: 50px;
-  float: center;
+  position: absolute;
+  right: 2vw;
+  top: 3vh;
+  height: auto;
+  width: 60%;
 }
 </style>
