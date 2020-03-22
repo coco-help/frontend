@@ -30,6 +30,7 @@
             type="tel"
             name="number"
             @input="phoneValidator"
+            @keyup.enter="login"
             v-model="number"
             class="input_field"
             id="input_number"
