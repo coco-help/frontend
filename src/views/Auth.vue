@@ -16,7 +16,7 @@
 
         <div class="bottom">
           <div @click="clickBack" class="back">Zurück</div>
-          <img @click="clickNext" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
+          <img @click="sendCode" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
         </div>
     </div>
     <div class="column is-half" id="half">
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 // @ is an alias to /src
 
 export default {
@@ -41,18 +42,21 @@ export default {
   },
 
 
-
   methods:{
   clickBack:function(){
     this.$router.push({ path: '/register' });
   },
 
-  sendCode: function(){
-    //send smsCode
+  sendCode() {
+    axios
+      .post('https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/register', {body: this.smsCode})
+      .then(response => (console.log(response)))
+      .catch(err => console.log("Axios-Fehler: " , err))
   },
 
-  clickNext: function (){
-    //sendCode(this.smsCode);
+  clickNext() {
+    //sendCode...
+
   },
 
   onceAgain: function(){
