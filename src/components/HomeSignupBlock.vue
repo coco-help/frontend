@@ -16,8 +16,15 @@
 
       </span>
 
-      <span class="submitButton" @click="register">
-          <span>Hilfe anbieten</span><img @click="register" class="arrow_right" src="../assets/arrow_white.svg">
+      <span
+        class="submitButton"
+        @click="register"
+      >
+        <span>Hilfe anbieten</span><img
+          @click="register"
+          class="arrow_right"
+          src="../assets/arrow_white.svg"
+        >
       </span>
 
     </div>
@@ -30,12 +37,12 @@ export default {
   data() {
     return {
       zip: null
-    }
+    };
   },
-  methods:{
-    register:function(){
-      this.$store.commit('inputZIP', this.zip)
-      this.$router.push({ path: '/register'});
+  methods: {
+    register: function() {
+      this.$store.commit("inputZIP", this.zip);
+      this.$router.push({ path: "/register" });
     }
   }
 };
@@ -49,16 +56,74 @@ button:focus {
   outline: none;
 }
 @media (min-width: 768px) {
+  .postalCode {
+    position: absolute;
+    left: 10vw;
+    top: 30vh;
+    height: 8vh;
+    width: 20vw;
+
+    img {
+      position: absolute;
+      height: 3vh;
+      left: 1vw;
+      top: 2.3vh;
+    }
+    input {
+      position: absolute;
+      left: 3.5vw;
+      height: 8vh;
+      width: 15vw;
+      margin-top: -1px;
+      font-size: 4vh;
+      line-height: 8vh;
+      &::placeholder {
+        font-size: 0.9vw;
+      }
+    }
+  }
+
   .landingBlock {
     width: 60vw;
     min-height: 70vh;
   }
-  .signupBlock {
-    min-width: 10px;
-    min-height: 10px;
+  .HomeSignupBlock {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40vw;
+    height: 100vh;
   }
 }
 @media (max-width: 768px) {
+  .postalCode {
+    position: absolute;
+    left: 5vw;
+    top: 5vh;
+    height: 8vh;
+    width: 90vw;
+    img {
+      position: absolute;
+      height: 3vh;
+      left: 3vw;
+      top: 2.3vh;
+    }
+    input {
+      position: absolute;
+      left: 12vw;
+      height: 8vh;
+      width: 70vw;
+      margin-top: -1px;
+      font-size: 4vh;
+      line-height: 8vh;
+
+      &::placeholder {
+        margin-top: -1vh;
+        font-size: 2vh;
+        line-height: 8vh;
+      }
+    }
+  }
   .landingBlock {
     position: relative;
     width: 100vw;
@@ -75,56 +140,37 @@ button:focus {
 }
 .postalCode {
   position: absolute;
-  left: 5vw;
-  top: 5vh;
-  height: 8vh;
   border-radius: 5px;
-  width: 90vw;
   border: 2px solid white;
   background: #ec617a;
-
-  img {
-    position: absolute;
-    height: 3vh;
-    left: 3vw;
-    top: 2.3vh;
-  }
   input {
-    position: absolute;
-    left: 12vw;
-    height:8vh;
-    width:70vw;
-    margin-top: -1px;
+
     background: none;
     border: none;
-    font-size:4vh;
-    line-height: 8vh;
-    color:white;
+    color: white;
 
-    &::placeholder{
-      margin-top: -1vh;
-      font-size: 2vh;
-      line-height: 8vh;
-      color:white;
+    &::placeholder {
+
+      color: white;
       opacity: 0.7;
     }
   }
 }
 .HomeSignupBlock {
   background: #e73454;
-  .submitButton{
+  .submitButton {
     position: absolute;
     color: white;
-    top:15vh;
-    left:0;
+    top: 15vh;
+    left: 0;
     width: 100vw;
     text-align: center;
     line-height: 10vh;
     font-size: 3.5vh;
-    img{
+    img {
       height: 6vh;
       padding-left: 2vh;
-      vertical-align:middle
+      vertical-align: middle;
     }
   }
 }

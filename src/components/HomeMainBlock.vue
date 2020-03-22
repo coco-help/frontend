@@ -61,17 +61,18 @@ button:focus {
   outline: none;
 }
 @media (min-width: 768px) {
-  .landingBlock {
+  .HomeMainBlock{
     position: relative;
+    min-height: 100vh;
+  }
+  .landingBlock {
+    position: absolute;
     width: 60vw;
     min-height: 100vh;
   }
-  .signupBlock {
-    min-width: 10px;
-    min-height: 10px;
-  }
 }
 @media (max-width: 768px) {
+
   .landingBlock {
     position: relative;
     width: 100vw;
