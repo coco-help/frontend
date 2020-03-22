@@ -5,6 +5,7 @@
         class="logo"
         src="../assets/logo.png"
         alt="../assets/vinny.jpeg"
+        @click="home"
       />
       <div class="main_content">
         <div class="descr">
@@ -179,6 +180,9 @@ export default {
     validateEmail: function(email) {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
+    },
+    home: function() {
+      this.$router.push({name:"Home"});
     }
   }
 };
@@ -194,6 +198,11 @@ export default {
   height: 40px;
   margin: 44px 30px 0;
   align-self: start;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 75%;
+  }
 }
 
 .main_content {
@@ -278,6 +287,11 @@ export default {
     }
     .arrow_right {
       float: right;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 75%;
+      }
     }
   }
 }
