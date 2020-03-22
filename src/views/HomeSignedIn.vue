@@ -186,6 +186,11 @@ export default {
       .cards {
         margin-top: 14px;
 
+        &:hover {
+        cursor: pointer;
+        opacity: 75%;
+        }
+
         .card {
           position: relative;
           height: 172px;
@@ -286,6 +291,11 @@ export default {
     .logout {
       color: #868686;
       margin-bottom: 40px;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 75%;
+      }
     }
   }
 }
