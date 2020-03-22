@@ -1,25 +1,31 @@
 <template>
   <div class="columns is-vcentered" id="columns">
     <div class="column" id="auth">
-        <img class="logo" src="../assets/logo.png">
-        <p id="verify">Bitte gib den 4-stelligen Code ein, den wir dir geschickt haben an:</p>
-        <p id="helpernumber">{{ number }}</p>
-        <input
-          type="number"
-          name="sms"
-          class="input_field"
-          id="sms_auth"
-          placeholder="SMS CODE"
-          max="9999"
-          v-model="smsCode">
-        <br>
-        <a @click="onceAgain" class="retry">Code erneut senden</a>
-        <p class='notApproved'>{{ notApproved }}</p>
+      <img class="logo" src="../assets/logo.png" />
+      <p id="verify">Bitte gib den 4-stelligen Code ein, den wir dir geschickt haben an:</p>
+      <b id="helpernumber">{{ number }}</b>
+      <input
+        type="number"
+        name="sms"
+        class="input_field"
+        id="sms_auth"
+        placeholder="SMS CODE"
+        max="9999"
+        v-model="smsCode"
+      />
+      <br />
+      <a @click="onceAgain" class="retry">Code erneut senden</a>
+      <p class="notApproved">{{ notApproved }}</p>
 
-        <div class="bottom">
-          <div @click="clickBack" class="back">Zurück</div>
-          <img @click="clickNext" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
-        </div>
+      <div class="bottom">
+        <div @click="clickBack" class="back">Zurück</div>
+        <img
+          @click="clickNext"
+          class="arrow_right"
+          src="../assets/arrow_right.svg"
+          alt="../assets/vinny.jpeg"
+        />
+      </div>
     </div>
     <div class="column is-half" id="half">
       <p class="motivation">?Motivational Text?</p>
@@ -28,7 +34,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 // @ is an alias to /src
 
 export default {
@@ -36,83 +42,92 @@ export default {
   components: {},
 
   data() {
-    return{
-      number: null,
-      smsCode: '',
+    return {
+      number: "+49 123 456789",
+      smsCode: "",
       jwt: null,
       approved: false,
-      notApproved: '',
+      notApproved: ""
+    };
+  },
+
+  methods: {
+    clickBack: function() {
+      this.$router.push({ path: "/register" });
+    },
+
+    sendCode() {
+      axios
+        .post("", { body: this.smsCode })
+        .then(response => (this.jwt = response));
+    },
+
+    clickNext() {
+      this.sendCode();
+      if (this.approved == true) {
+        this.$router.push({ path: "/h" });
+      } else {
+        this.notApproved = "Der eingegebene Code ist falsch!";
+      }
+    },
+
+    onceAgain: function() {
+      //send SMS Code again?
     }
-  },
-
-
-  methods:{
-  clickBack:function(){
-    this.$router.push({ path: '/register' });
-  },
-
-  sendCode() {
-    axios
-      .post('', {body: this.smsCode})
-      .then(response => (this.jwt = response));
-  },
-
-  clickNext() {
-    this.sendCode()
-    if (this.approved == true) {
-      this.$router.push({ path:'/h'})
-    } else {
-      this.notApproved = 'Der eingegebene Code ist falsch!'
-    }
-  },
-
-  onceAgain: function(){
-    //send SMS Code again?
   }
-}
 };
-
 </script>
 
 <style lang="scss" scoped>
+.columns {
+  margin: 0;
+  padding: 0;
+}
 
 #auth {
-  text-align: center;
-  padding: 80px;
+  margin: 0 30px;
+  padding: 0;
   height: 100vh;
 
   .logo {
-    margin-top: 30%;
+    margin-top: 44px;
+    height: 33px;
     text-align: left;
   }
 
   #verify {
-    margin-top: 5%;
-    font-weight: 500;
+    margin-top: 24px;
     font-size: 18px;
-    line-height: 21px;
-    color: #000000;
   }
   #helpernumber {
     margin-top: 2%;
     font-weight: bold;
     font-size: 18px;
-    letter-spacing: 3px;
   }
   .input_field {
-    margin-top: 4%;
-    font-size: 18px;
+    margin: 40px auto 18px;
+    font-size: 24px;
     font-weight: bold;
 
     width: 232px;
-    height: 49px;
-    border: 1.6px solid #000000;
+    height: 60px;
+    border: none;
     box-sizing: border-box;
     text-align: center;
-    padding-left: 16px;
     border-radius: 4px;
     letter-spacing: 10px;
-    border-color: #e73454;
+    background: #f5f5f5;
+    border-radius: 4px;
+
+    &:focus {
+      border: 1.6px solid #e73454;
+      box-shadow: 0 0 5px #e73454;
+      border-radius: 4px;
+      outline: none;
+    }
+    &::placeholder {
+      font-size: 20px;
+    }
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
@@ -120,10 +135,14 @@ export default {
     margin: 0;
   }
 
+  .retry {
+    margin-top: 18px;
+  }
+
   a {
     color: #e73454;
     &:hover {
-        color:#ef768c;
+      color: #ef768c;
     }
   }
   .notApproved {
@@ -138,8 +157,10 @@ export default {
       float: left;
       cursor: pointer;
       margin-top: 15px;
+      font-size: 16px;
+      color: #868686;
       &:hover {
-        color:gray;
+        color: gray;
       }
     }
     img.arrow_right {
@@ -150,7 +171,6 @@ export default {
       }
     }
   }
-
 }
 
 #half {
@@ -166,10 +186,12 @@ export default {
   }
 }
 
-
-
-
-
-
-
+@media (max-width: 768px) {
+  #auth {
+    height: auto;
+  }
+  #half {
+    display: none;
+  }
+}
 </style>

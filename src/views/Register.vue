@@ -108,6 +108,7 @@ export default {
     margin-bottom: 16px;
     word-wrap:break-word;
     font-size: 18px;
+    line-height: 125%;
 
     .location_plz {
       font-weight: 600;
