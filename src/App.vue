@@ -34,6 +34,7 @@ html {
 
 p {
   font-size: 16px;
+  line-height: 125%;
   color: #303030;
 }
 b {
