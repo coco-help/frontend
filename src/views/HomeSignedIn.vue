@@ -4,7 +4,7 @@
         <div class="header">
             <img src="../assets/logo.png" class="logo">
         </div>
-        <div class="state"></div>
+        <div class="state">
             <p><b>Danke</b>, dass du hilfts.<br>Wir werden dich anrufen sobald es eine neue Anfrage in deiner umgebung gibt.</p>
         </div>
         <div class="invite">
