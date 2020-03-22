@@ -62,8 +62,8 @@ export default {
             zip: this.$route.query.zip,
             phone: this.number,
             email: this.email
-          })
-          .catch(err => console.log("Axios-Fehler: ", err))
+          });
+          //.catch(err => console.log("Axios-Fehler: ", err))
       }
     },
 
