@@ -263,7 +263,7 @@ export default {
       }
     }
     .b {
-      padding-top: 10vh;
+      padding-top: 115px;
       width: 30vw;
     }
   }
