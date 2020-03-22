@@ -39,9 +39,9 @@
             </div>
         </div>
         <div class="line"></div>
-        <router-link to="/" class="logout" @click="logout()">Abmelden</router-link> 
+        <div class="logout" @click="logout()">Abmelden</div>
       </div>
-        
+
     </div>
 </template>
 
@@ -56,11 +56,15 @@ export default {
     };
   },
   methods: {
-    logout() {},
+    logout() {
+      localStorage.clear();
+      this.$router.push({name:'Home'});
+    },
     toggle() {
       //  console.log("ok");
       this.onOff = !this.onOff;
       const token = jwt_decode("token");
+
 
       axios.post(
         `https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`,

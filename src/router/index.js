@@ -7,6 +7,7 @@ import HomeSignedIn from '../views/HomeSignedIn.vue'
 import About from '../views/About.vue'
 import Impressum from '../views/Impressum'
 import Datenschutz from '../views/Datenschutz'
+import Login from '../views/Login'
 
 Vue.use(VueRouter)
 
@@ -49,12 +50,23 @@ const routes = [
     path: '/datenschutz',
     name: 'Datenschutz',
     component: Datenschutz
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
   routes
+});
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'HomeSignedIn' && localStorage.getItem('token')) next({ name: 'HomeSignedIn' })
+  if (to.name == 'HomeSignedIn' && !localStorage.getItem('token')) next({ name: 'Home' })
+  // if the user is not authenticated, `next` is called twice
+  next();
 })
 
 export default router

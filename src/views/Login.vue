@@ -1,39 +1,18 @@
 <template>
   <div class="register">
     <div class="a c">
-      <img
-        class="logo"
-        src="../assets/logo.png"
-        alt="../assets/vinny.jpeg"
-      />
+      <img class="logo" src="../assets/logo.png" alt="../assets/vinny.jpeg" />
       <div class="main_content">
         <div class="descr">
-          Cool, dass du in
-          <span class="location_plz">{{ zip }}</span> helfen möchtest. Teil uns noch ein paar Infos über dich mit
+          Willkommen zurück! Gib deine Nummer ein um weiter zu helfen.
         </div>
-        <div
-          class="error"
-          v-if="errors.length != 0"
-        >
+        <div class="error" v-if="errors.length != 0">
           <b class="error">Bitte korrigiere den/die folgenden Fehler:</b>
           <ul>
-            <li
-              class="error"
-              :key="error"
-              v-for="error in errors"
-            >{{ error }}</li>
+            <li class="error" :key="error" v-for="error in errors">{{ error }}</li>
           </ul>
         </div>
         <div class="inputs">
-          <div class="mini">Name</div>
-          <input
-            type="text"
-            name="name"
-            v-model="name"
-            class="input_field"
-            id="input_name"
-            placeholder=" Max Mustermann"
-          />
           <div class="mini">Nummer</div>
           <input
             type="tel"
@@ -44,21 +23,8 @@
             id="input_number"
             placeholder=" +49 123 456789"
           />
-          <div class="mini">E-Mail</div>
-          <input
-            type="text"
-            name="email"
-            v-model="email"
-            class="input_field"
-            id="input_mail"
-            placeholder=" ichwillhelfen@gmail.com"
-          />
         </div>
         <div class="bottom">
-          <div
-            class="back"
-            @click="$router.go(-1)"
-          >Zurück</div>
           <img
             @click="request"
             class="arrow_right"
@@ -77,7 +43,7 @@ import axios from "axios";
 // @ is an alias to /src
 
 export default {
-  name: "Register",
+  name: "Login",
   components: {},
 
   data() {
@@ -119,45 +85,13 @@ export default {
                 params: { phone: res.data.phone }
               });
             }
-          })
-          .catch(res => {
-            if (res.data.error == "Phone number already registered") {
-              this.login();
-            }
-          });
-      }
-    },
-    login: function() {
-      if (this.checkForm()) {
-        axios
-          .post(
-            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/register",
-            {
-              name: this.name,
-              zip: this.$route.query.zip,
-              phone: this.number,
-              email: this.email
-            }
-          )
-          .then(res => {
-            if (res.data.phone) {
-              this.$router.push({
-                name: "Auth",
-                params: { phone: res.data.phone }
-              });
-            }
           });
       }
     },
 
     checkForm: function() {
       this.errors = [];
-      if (
-        this.name &&
-        this.number &&
-        this.email &&
-        this.validateEmail(this.email)
-      ) {
+      if (this.email) {
         return true;
       }
       if (!this.name) {
