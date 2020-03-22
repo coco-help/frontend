@@ -4,8 +4,11 @@
         <div class="header">
             <img src="../assets/logo.png" class="logo">
         </div>
-        <div class="state">
-            <p><b>Danke</b>, dass du hilfts.<br>Wir werden dich anrufen sobald es eine neue Anfrage in deiner umgebung gibt.</p>
+        <div class="state" v-if="onOff">
+            <p><b>Danke</b>, dass du hilfst.<br>Wir werden dich anrufen sobald es eine neue Anfrage in deiner Umgebung gibt.</p>
+        </div>
+        <div class="state" :class="{off: onOff}" v-else>
+            <p><b>Achtung!</b> Du hast eingsetllt nicht erreichbar zu sein.<br>Um zu helfen ändere bitte dein Status.</p>
         </div>
         <div class="invite">
             <div class="icon friends">
@@ -77,6 +80,10 @@ export default {
     background-color: #f5f5f5;
     border-radius: 10px;
     padding: 20px;
+
+    &.off{
+      background-color: red;
+    }
   }
 
   .invite {

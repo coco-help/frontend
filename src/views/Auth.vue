@@ -38,7 +38,8 @@ export default {
     return{
       number: null,
       smsCode: '',
-      realCode: '',
+      jwt: null,
+      approved: false
     }
   },
 
@@ -51,7 +52,7 @@ export default {
   sendCode() {
     axios
       .post('', {body: this.smsCode})
-      .then(response => (this.realCode = response));
+      .then(response => (this.jwt = response));
   },
 
   clickNext() {
@@ -130,9 +131,12 @@ export default {
         color:gray;
       }
     }
-    .arrow_right {
+    img.arrow_right {
       float: right;
       cursor: pointer;
+      &:hover {
+        opacity: 75%;
+      }
     }
   }
 

@@ -62,8 +62,9 @@ button:focus {
 }
 @media (min-width: 768px) {
   .landingBlock {
+    position: relative;
     width: 60vw;
-    min-height: 70vh;
+    min-height: 100vh;
   }
   .signupBlock {
     min-width: 10px;
