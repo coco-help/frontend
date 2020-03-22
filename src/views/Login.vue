@@ -5,10 +5,11 @@
         class="logo"
         src="../assets/logo.png"
         alt="../assets/vinny.jpeg"
+        @click="home"
       />
       <div class="main_content">
         <div class="descr">
-          Willkommen zurück! Gib deine Nummer ein um weiter zu helfen.
+          Willkommen zurück! Gib deine Nummer ein um dich wieder anzumelden.
         </div>
         <div
           class="error"
@@ -29,6 +30,7 @@
             type="tel"
             name="number"
             @input="phoneValidator"
+            @keyup.enter="login"
             v-model="number"
             class="input_field"
             id="input_number"
@@ -36,6 +38,10 @@
           />
         </div>
         <div class="bottom">
+          <div
+            class="back"
+            @click="$router.go(-1)"
+          >Zurück</div>
           <img
             @click="request"
             class="arrow_right"
@@ -80,7 +86,7 @@ export default {
     request: function() {
       if (this.checkForm()) {
         this.login();
-        }
+      }
     },
 
     phoneValidator: function() {
@@ -98,19 +104,23 @@ export default {
       }
     },
     login: function() {
-        axios
-          .post(
-            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/login/"+this.number,{}
-          )
-          .then(res => {
-            if (res.data.message=="user_message_sent") {
-              this.$router.push({
-                name: "Auth",
-                params: { phone: this.number }
-              });
-            }
-          });
-
+      axios
+        .post(
+          "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/login/" +
+            this.number,
+          {}
+        )
+        .then(res => {
+          if (res.data.message == "user_message_sent") {
+            this.$router.push({
+              name: "Auth",
+              params: { phone: this.number }
+            });
+          }
+        });
+    },
+    home: function() {
+      this.$router.push({name:"Home"});
     }
   }
 };
@@ -126,6 +136,11 @@ export default {
   height: 40px;
   margin: 44px 30px 0;
   align-self: start;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 75%;
+  }
 }
 
 .main_content {
@@ -192,6 +207,22 @@ export default {
 
   .bottom {
     display: inline;
+
+    .back {
+      margin-top: 15px;
+      float: left;
+      width: 55px;
+      height: 19px;
+      font-family: Work Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      color: #a5a5a5;
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     .arrow_right {
       float: right;

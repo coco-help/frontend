@@ -4,7 +4,7 @@
       <img class="logo" src="../assets/logo.png" />
       <div class="c form">
         <p id="verify">Bitte gib den 4-stelligen Code ein, den wir dir geschickt haben an:</p>
-        <b id="helpernumber">{{ number }}</b>
+        <b id="helpernumber">{{ phone }}</b>
         <input
           type="number"
           name="sms"
@@ -69,7 +69,7 @@ export default {
         .then(res => {
           if(res.data.token){
             localStorage.setItem('token', res.data.token);
-            axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token;
+            axios.defaults.headers.common['Authorization'] = res.data.token;
             this.$router.push({ path: "/h" });
           }else{
              this.notApproved = "Der eingegebene Code ist falsch!";
@@ -86,7 +86,12 @@ export default {
     },
 
     onceAgain: function() {
-      //send SMS Code again?
+      axios
+          .post(
+            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/login/"+this.phone,
+            {
+            }
+          );
     }
   }
 };
