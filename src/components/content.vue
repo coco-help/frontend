@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div>
+    <div >
       <img
         src="../assets/oma.png"
         alt=""
@@ -31,17 +31,15 @@ export default {
 <style scoped lang="scss">
 
 .content {
-  height: 100vh;
+  position: relative;
+  width: 100%;
 
   img {
-    height: 400px;
-    margin-left: 60vh;
+    width: 80%;
   }
   .slogan {
     margin-top: 10vh;
     text-align: left;
-    margin-right: 30vh;
-    margin-left: 30vh;
     font-weight: 300;
     max-width: 30vw;
     font-size: 3vh;
