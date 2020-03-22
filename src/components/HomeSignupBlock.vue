@@ -72,13 +72,10 @@ button:focus {
     input {
       position: absolute;
       left: 3.5vw;
-      height: 8vh;
-      width: 15vw;
-      margin-top: -1px;
-      font-size: 4vh;
-      line-height: 8vh;
+      height: 50px;
+      width: 306px;
       &::placeholder {
-        font-size: 0.9vw;
+        font-size: 16px;
       }
     }
   }
@@ -115,7 +112,7 @@ button:focus {
     position: absolute;
     left: 5vw;
     top: 5vh;
-    height: 8vh;
+    height: 50px;
     width: 90vw;
     img {
       position: absolute;
@@ -126,11 +123,8 @@ button:focus {
     input {
       position: absolute;
       left: 12vw;
-      height: 8vh;
+      height: 50px;
       width: 70vw;
-      margin-top: -1px;
-      font-size: 4vh;
-      line-height: 8vh;
 
       &::placeholder {
         margin-top: -1vh;
@@ -171,8 +165,8 @@ button:focus {
 .postalCode {
   position: absolute;
   border-radius: 5px;
-  border: 2px solid white;
-  background: #ec617a;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1.6px solid rgba(255, 255, 255, 0.1);
   input {
 
     background: none;

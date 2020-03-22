@@ -63,12 +63,11 @@ button:focus {
 @media (min-width: 768px) {
   .HomeMainBlock{
     position: relative;
-    min-height: 100vh;
+    min-height: 70vh;
   }
   .landingBlock {
-    position: absolute;
+    position: relative;
     width: 60vw;
-    min-height: 100vh;
   }
 }
 @media (max-width: 768px) {
