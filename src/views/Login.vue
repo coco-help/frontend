@@ -85,7 +85,7 @@ export default {
     request: function() {
       if (this.checkForm()) {
         this.login();
-        }
+      }
     },
 
     phoneValidator: function() {
@@ -103,23 +103,24 @@ export default {
       }
     },
     login: function() {
-        axios
-          .post(
-            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/login/"+this.number,{}
-          )
-          .then(res => {
-            if (res.data.message=="user_message_sent") {
-              this.$router.push({
-                name: "Auth",
-                params: { phone: this.number }
-              });
-            }
-          });
-
+      axios
+        .post(
+          "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/login/" +
+            this.number,
+          {}
+        )
+        .then(res => {
+          if (res.data.message == "user_message_sent") {
+            this.$router.push({
+              name: "Auth",
+              params: { phone: this.number }
+            });
+          }
+        });
     },
-home: function() {}
-
-
+    home: function() {
+      this.$router.push({name:"Home"});
+    }
   }
 };
 </script>
@@ -134,6 +135,10 @@ home: function() {}
   height: 40px;
   margin: 44px 30px 0;
   align-self: start;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .main_content {
