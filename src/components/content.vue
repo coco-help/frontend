@@ -35,10 +35,11 @@ export default {
   width: 100%;
 
   img {
-    width: 80%;
+    width: 100%;
   }
   .slogan {
     margin-top: 10vh;
+    margin-left: 10vh;
     text-align: left;
     font-weight: 300;
     max-width: 30vw;
