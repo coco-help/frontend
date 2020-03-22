@@ -5,6 +5,8 @@ import Register from '../views/Register.vue'
 import Auth from '../views/Auth.vue'
 import HomeSignedIn from '../views/HomeSignedIn.vue'
 import About from '../views/About.vue'
+import Impressum from '../views/Impressum'
+import Datenschutz from '../views/Datenschutz'
 
 Vue.use(VueRouter)
 
@@ -35,15 +37,18 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
+    //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     component: About
   },
   {
     path: '/impressum',
-    name: 'Impressum'
+    name: 'Impressum',
+    component: Impressum
   },
   {
     path: '/datenschutz',
-    name: 'Datenschutz'
+    name: 'Datenschutz',
+    component: Datenschutz
   }
 ]
 

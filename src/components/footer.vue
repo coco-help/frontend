@@ -49,10 +49,10 @@ export default {
       this.$router.push({ path: "/about" });
     },
     clickImpressum: function() {
-      this.$router.push({ path: "./views/Impressum" });
+      this.$router.push({ path: "/impressum" });
     },
     clickDatenschutz: function() {
-      this.$router.push({ path: "./views/Datenschutz" });
+      this.$router.push({ path: "/datenschutz" });
     }
   }
 };
@@ -60,11 +60,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.Footer{
-background: #F5F5F5;
-min-height:30vh;
-position: relative;
+.Footer {
+  background: #f5f5f5;
+  min-height: 30vh;
+  position: relative;
+  width: 100vh;
+  overflow: hidden;
 }
+@media (min-width: 768px) {
+  .Footer {
+    position: relative;
+    width: 60vw;
+  }
+}
+@media (max-width: 768px) {
+    .Footer {
+      position: absolute;
+      left: 5vw;
+      top: 3vh;
+      width: 12vh;
+    }
+  }
+
 img {
   height: 30px;
 }

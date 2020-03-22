@@ -13,7 +13,7 @@
         <div class="mini">Name</div>
         <input type="text" name="name" v-model="name"  class="input_field" id="input_name" placeholder=" Max Mustermann">
         <div class="mini">Nummer</div>
-        <input type="number" name="number" v-model="number"  class="input_field" id="input_number" placeholder=" +49 123 456789">
+        <input type="tel" name="number"  @input="phoneValidator" v-model="number"  class="input_field" id="input_number" placeholder=" +49 123 456789">
         <div class="mini">E-Mail</div>
         <input type="text" name="email" v-model="email"  class="input_field" id="input_mail" placeholder=" ichwillhelfen@gmail.com">
       </div>
@@ -44,8 +44,8 @@ export default {
     }
   },
 
-  mounted() {
-    this.zip = this.$store.getters.getZIP
+  created() {
+    this.zip = this.$route.query.zip
     //do zip lookup with backend
     //TODO: REMOVE THIS. THIS DOES NOT LOOKUP THE CITY NAME
     //axios
@@ -56,14 +56,14 @@ export default {
   methods: {
     request: function () {
       if (this.checkForm()) {
-        //add auth token
         axios
-          .post('https://rdtrvrhdsg.execute-api.eu-central-1.amazonaws.com/dev/register', {
+          .post('https://rdtrvrhdsg.execute-api.eu-central-1.amazonaws.com/prod/register', {
             name: this.name,
-            zip: this.zip,
+            zip: this.$route.query.zip,
             phone: this.number,
             email: this.email
           })
+          .catch(err => console.log("Axios-Fehler: ", err))
       }
     },
 
@@ -82,7 +82,11 @@ export default {
             this.errors.push('E-Mail ist nicht korrekt.');
           }
         },
-
+    phoneValidator: function () {
+          if(this.number.startsWith("0")){
+            this.number = "+49"+this.number.substring(1);
+          }
+        },
     validateEmail: function (email) {
         var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);

@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <HomeMainBlock/>
-    <p>More info on <a href="https://devpost.com/software/corona-connect">https://devpost.com/software/corona-connect</a></p>
     <Footer/>
+    <Content/>
   </div>
 </template>
 
@@ -10,12 +10,14 @@
 // @ is an alias to /src
 import HomeMainBlock from '@/components/HomeMainBlock.vue'
 import Footer from '@/components/footer.vue'
+import Content from '@/components/content.vue'
 
 export default {
   name: 'Home',
   components: {
     HomeMainBlock,
-    Footer
+    Footer,
+    Content
   }
 }
 </script>
@@ -28,5 +30,6 @@ export default {
 .home{
   padding:0px;
 }
+
 
 </style>

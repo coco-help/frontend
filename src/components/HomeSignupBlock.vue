@@ -8,6 +8,8 @@
           type="number"
           min="0"
           max="99999"
+          maxlength="5"
+          @input="clipinput"
           placeholder="Bitte gib deine Postleitzahl an"
         />
       </span>
@@ -30,8 +32,11 @@ export default {
   },
   methods: {
     register: function() {
-      this.$store.commit("inputZIP", this.zip);
-      this.$router.push({ path: "/register" });
+      //this.$store.commit("inputZIP", this.zip);
+      this.$router.push({ name: "Register" , query: {zip:this.zip}});
+    },
+    clipinput: function(){
+      this.zip=this.zip.substring(0,5);
     }
   }
 };

@@ -1,7 +1,10 @@
 <template>
   <div class="HomeMainBlock">
     <div class="landingBlock">
-      <a href="tel:+49800 30040020" class="telnum">800 30040020</a>
+      <a
+        href="tel:+49800 30040020"
+        class="telnum"
+      >800 30040020</a>
       <div class="telnum-text">..wenn du hilfe benötigst</div>
       <img
         src="../assets/logo.png"
@@ -11,8 +14,9 @@
       <div class="illustration"></div>
       <div class="infotext"> Hilf zur Risikogruppe gehörigen Nachbarn, ihren Alltag trotz Corona so normal wie möglich zu gestalten.</div>
 
+      <p>More info on <a href="https://devpost.com/software/corona-connect">https://devpost.com/software/corona-connect</a></p>
     </div>
-    <HomeSignupBlock/>
+    <HomeSignupBlock />
   </div>
 </template>
 
@@ -32,26 +36,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
-.telnum-text{
-font-size: 1.5vh;
-position: absolute;
-right: 3.5vw;
-top:5.5vh;
-text-align: right ;
-float:right;
-background: none;
+.telnum-text {
+  font-size: 1.5vh;
+  position: absolute;
+  right: 3.5vw;
+  top: 5.5vh;
+  text-align: right;
+  float: right;
+  background: none;
 }
-.telnum{
-color: #e73454;
-font-size: 3vh;
-position: absolute;
-right: 3vw;
-top:2vh;
-text-align: right ;
-float:right;
-background: none;
-font-weight: 600;
+.telnum {
+  color: #e73454;
+  font-size: 3vh;
+  position: absolute;
+  right: 3vw;
+  top: 2vh;
+  text-align: right;
+  float: right;
+  background: none;
+  font-weight: 600;
 }
 
 input:focus,
@@ -61,17 +64,30 @@ button:focus {
   outline: none;
 }
 @media (min-width: 768px) {
-  .HomeMainBlock{
+  .HomeMainBlock {
     position: relative;
     min-height: 70vh;
   }
+  .logo {
+      position: absolute;
+      left: 3vw;
+      top: 3vh;
+      width: 18vh;
+    }
   .landingBlock {
     position: relative;
     width: 60vw;
   }
+  .infotext {
+    position: absolute;
+    top: 40vh;
+    font-weight: 300;
+    max-width: 30vw;
+    font-size: 3vh;
+    margin-left: 5vw;
+  }
 }
 @media (max-width: 768px) {
-
   .landingBlock {
     position: relative;
     width: 100vw;
@@ -79,7 +95,7 @@ button:focus {
     .logo {
       position: absolute;
       left: 5vw;
-      top:3vh;
+      top: 3vh;
       width: 12vh;
     }
   }
@@ -90,13 +106,12 @@ button:focus {
   }
 }
 .illustration {
-
   position: absolute;
-  background: url('../assets/Illu.png');
+  background: url("../assets/Illu.png");
   background-position: center center;
   background-size: contain;
-  background-repeat:no-repeat;
-  top:15vh;
+  background-repeat: no-repeat;
+  top: 15vh;
   width: 100%;
   left: 0%;
   height: 23vh;
