@@ -8,7 +8,7 @@
             <p><b>Danke</b>, dass du hilfst.<br>Wir werden dich anrufen sobald es eine neue Anfrage in deiner Umgebung gibt.</p>
         </div>
         <div class="state off" v-else>
-            <p><b>Achtung!</b> Du hast eingsetllt nicht erreichbar zu sein.<br>Um zu helfen ändere bitte dein Status.</p>
+            <p><b>Achtung!</b> Du hast eingstellt nicht erreichbar zu sein.<br>Um zu helfen ändere bitte dein Status.</p>
         </div>
         <div class="invite">
             <div class="icon friends">
