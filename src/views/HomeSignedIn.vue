@@ -18,6 +18,7 @@
             <div class="icon arrow">
                 <img src="../assets/arrow.svg">
             </div>
+            <Share></Share>
         </div>
         <div class="grow"></div>
         <div class="education">
@@ -49,6 +50,8 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
+import Share from "../components/Share.vue";
+
 export default {
   data() {
     return {
@@ -58,13 +61,12 @@ export default {
   methods: {
     logout() {
       localStorage.clear();
-      this.$router.push({name:'Home'});
+      this.$router.push({ name: "Home" });
     },
     toggle() {
       //  console.log("ok");
       this.onOff = !this.onOff;
       const token = jwt_decode("token");
-
 
       axios.put(
         `https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`,
@@ -74,6 +76,9 @@ export default {
       //   console.log(response);
       // });
     }
+  },
+  components: {
+    Share
   }
 };
 </script>
