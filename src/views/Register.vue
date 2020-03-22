@@ -137,7 +137,8 @@ export default {
             if (res.data.message=="user_message_sent") {
               this.$router.push({
                 name: "Auth",
-                params: { phone: this.number }
+                params: { phone: this.number ,
+                zip: this.zip }
               });
 
             }
@@ -167,7 +168,9 @@ export default {
     },
     phoneValidator: function() {
       if (this.number.startsWith("0")) {
-        this.number = "+49" + this.number.substring(1);
+        this.number = "+49" + this.number.substring(1).replace(" ","");
+      }else{
+       this.number = this.number.replace(" ","");
       }
     },
     validateEmail: function(email) {

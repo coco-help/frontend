@@ -79,7 +79,7 @@ export default {
   methods: {
     request: function() {
       if (this.checkForm()) {
-        this.login()
+        this.login();
         }
     },
 

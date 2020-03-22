@@ -66,7 +66,7 @@ export default {
       const token = jwt_decode("token");
 
 
-      axios.post(
+      axios.put(
         `https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`,
         { is_active: this.onOff }
       );
