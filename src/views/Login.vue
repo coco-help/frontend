@@ -83,6 +83,11 @@ export default {
         }
     },
 
+    phoneValidator: function() {
+      if (this.number.startsWith("0")) {
+        this.number = "+49" + this.number.substring(1);
+      }
+    },
     checkForm: function() {
       this.errors = [];
       if (this.number) {
@@ -90,11 +95,6 @@ export default {
       }
       if (!this.number) {
         this.errors.push("Handynummer benötigt.");
-      }
-    },
-    phoneValidator: function() {
-      if (this.number.startsWith("0")) {
-        this.number = "+49" + this.number.substring(1);
       }
     }
   }
@@ -192,6 +192,10 @@ export default {
     }
     .arrow_right {
       float: right;
+      cursor: pointer;
+      &:hover {
+        opacity: 75%;
+      }
     }
   }
 }

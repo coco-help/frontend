@@ -120,9 +120,7 @@ export default {
               });
             }
           })
-          .catch(e => {
-            console.log(e);
-
+          .catch(() => {
               this.login();
 
           });
@@ -139,8 +137,9 @@ export default {
             if (res.data.message=="user_message_sent") {
               this.$router.push({
                 name: "Auth",
-                params: { phone: this.phone }
+                params: { phone: this.number }
               });
+
             }
           });
 
