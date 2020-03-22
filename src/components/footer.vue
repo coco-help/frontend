@@ -25,10 +25,11 @@
         <p>coco - corona connect 2020</p>
       </div>
       <div class="column">
-        <img
+        <a href="https://devpost.com/software/corona-connect"><img
           src="../assets/wirvsvirus.png"
           class="wirvsvirus"
-        >
+        ></a>
+
       </div>
     </div>
   </div>

@@ -166,6 +166,7 @@ button:focus {
     background: none;
     border: none;
     color: white;
+    font-size: 18px;
 
     &::placeholder {
       color: white;

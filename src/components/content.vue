@@ -10,7 +10,7 @@
       <p>Ob einkaufen, Zuhören oder mit dem Hund Gassi gehen – wir verbinden dich telefonisch mit einer hilfesuchenden Person in deiner Umgebung. </p>
     </div>
     <div class="journey">
-      <a href="">user journey/ablauf</a>
+      <a href="">user journey / ablauf</a>
     </div>
   </div>
 </template>
@@ -41,14 +41,18 @@ export default {
   .slogan {
     margin-top: 5vh;
     text-align: left;
-    margin-right: 35vh;
-    margin-left: 35vh;
-    font-weight: 450;
+    margin-right: 40vh;
+    margin-left: 40vh;
+    font-weight: 400;
     max-width: 30vw;
-    font-size: 3vh;
+    font-size: 15vh;
   }
   .journey {
-    margin-top: 10vh;
+    margin-top: 30vh;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 3vh;
   }
 }
 

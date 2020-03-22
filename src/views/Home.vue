@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <HomeMainBlock/>
-    <Footer/>
     <Content/>
+    <Footer/>
   </div>
 </template>
 

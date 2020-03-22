@@ -2,10 +2,10 @@
   <div class="HomeMainBlock">
     <div class="landingBlock">
       <a
-        href="tel:+49800 30040020"
+        href="tel:+1 956 247 4513"
         class="telnum"
-      >800 30040020</a>
-      <div class="telnum-text">..wenn du hilfe benötigst</div>
+      >+1 956 247 4513</a>
+      <div class="telnum-text">..wenn du Hilfe benötigst</div>
       <img
         src="../assets/logo.png"
         alt="COCO"
@@ -13,8 +13,6 @@
       >
       <div class="illustration"></div>
       <div class="infotext"> Hilf zur Risikogruppe gehörigen Nachbarn, ihren Alltag trotz Corona so normal wie möglich zu gestalten.</div>
-
-      <p>More info on <a href="https://devpost.com/software/corona-connect">https://devpost.com/software/corona-connect</a></p>
     </div>
     <HomeSignupBlock />
   </div>
