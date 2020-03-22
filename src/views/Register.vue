@@ -68,7 +68,6 @@
         </div>
       </div>
     </div>
-    <div class="b">text</div>
   </div>
 </template>
 
