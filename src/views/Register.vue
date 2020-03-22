@@ -46,9 +46,9 @@ export default {
     //do zip lookup with backend
     //TODO: REMOVE THIS. THIS DOES NOT LOOKUP THE CITY NAME
     axios
-      .get('https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/phone', {params: { zip: this.zip}})
-      .then(resp => console.log(resp))
-      .catch(err => console.log("Axios-Fehler: " , err))
+      .get('https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/phone', {params: { zip: this.zip}});
+      //.then(resp => console.log(resp))
+      //.catch(err => console.log("Axios-Fehler: " , err))
   },
   methods: {
     request: function () {
