@@ -2,31 +2,20 @@
   <div class="HomeSignupBlock">
     <div class="signupBlock">
       <span class="postalCode">
-        <img
-          src="../assets/house.svg"
-          alt="PLZ"
-        >
+        <img src="../assets/house.svg" alt="PLZ" />
         <input
           v-model="zip"
           type="number"
           min="0"
           max="99999"
           placeholder="Bitte gib deine Postleitzahl an"
-        >
-
+        />
       </span>
 
-      <span
-        class="submitButton"
-        @click="register"
-      >
-        <span>Hilfe anbieten</span><img
-          @click="register"
-          class="arrow_right"
-          src="../assets/arrow_white.svg"
-        >
+      <span class="submitButton" @click="register">
+        <span>Hilfe anbieten</span>
+        <img @click="register" class="arrow_right" src="../assets/arrow_white.svg" />
       </span>
-
     </div>
   </div>
 </template>
@@ -58,22 +47,23 @@ button:focus {
 @media (min-width: 768px) {
   .postalCode {
     position: absolute;
-    left: 10vw;
-    top: 35vh;
-    height: 8vh;
+    left: calc((100% - 306px) / 2);
+    top: 38vh;
+    height: 50px;
     width: 306px;
 
     img {
       position: absolute;
-      height: 3vh;
-      left: 1vw;
-      top: 2.3vh;
+      height: 22px;
+      left: 14px;
+      top: 12.4px;
     }
     input {
       position: absolute;
-      left: 3.5vw;
+      left: 42px;
       height: 50px;
-      width: 306px;
+      width: 70vw;
+
       &::placeholder {
         font-size: 16px;
       }
@@ -91,20 +81,20 @@ button:focus {
     width: 40vw;
     height: 100vh;
     .submitButton {
-    position: absolute;
-    color: white;
-    top: 45vh;
-    left: 0;
-    width: 40vw;
-    text-align: center;
-    line-height: 10vh;
-    font-size: 3.5vh;
-    img {
-      height: 6vh;
-      padding-left: 2vh;
-      vertical-align: middle;
+      position: absolute;
+      color: white;
+      top: 45vh;
+      left: 0;
+      width: 40vw;
+      text-align: center;
+      line-height: 10vh;
+      font-size: 3.5vh;
+      img {
+        height: 6vh;
+        padding-left: 2vh;
+        vertical-align: middle;
+      }
     }
-  }
   }
 }
 @media (max-width: 768px) {
@@ -116,19 +106,19 @@ button:focus {
     width: 90vw;
     img {
       position: absolute;
-      height: 3vh;
-      left: 3vw;
-      top: 2.3vh;
+      height: 22px;
+      left: 14px;
+      top: 12.4px;
     }
     input {
       position: absolute;
-      left: 12vw;
+      left: 42px;
       height: 50px;
       width: 70vw;
 
       &::placeholder {
         margin-top: -1vh;
-        font-size: 2vh;
+        font-size: 16px;
         line-height: 8vh;
       }
     }
@@ -146,20 +136,20 @@ button:focus {
     width: 100vw;
     min-height: 30vh;
     .submitButton {
-    position: absolute;
-    color: white;
-    top: 15vh;
-    left: 0;
-    width: 100vw;
-    text-align: center;
-    line-height: 10vh;
-    font-size: 3.5vh;
-    img {
-      height: 6vh;
-      padding-left: 2vh;
-      vertical-align: middle;
+      position: absolute;
+      color: white;
+      top: 15vh;
+      left: 0;
+      width: 100vw;
+      text-align: center;
+      line-height: 10vh;
+      font-size: 3.5vh;
+      img {
+        height: 6vh;
+        padding-left: 2vh;
+        vertical-align: middle;
+      }
     }
-  }
   }
 }
 .postalCode {
@@ -168,13 +158,11 @@ button:focus {
   background: rgba(255, 255, 255, 0.2);
   border: 1.6px solid rgba(255, 255, 255, 0.1);
   input {
-
     background: none;
     border: none;
     color: white;
 
     &::placeholder {
-
       color: white;
       opacity: 0.7;
     }
@@ -182,6 +170,5 @@ button:focus {
 }
 .HomeSignupBlock {
   background: #e73454;
-
 }
 </style>
