@@ -15,12 +15,6 @@ html {
   margin: 0px;
   padding: 0px;
 }
-// @media (min-width: $breakpoint) {
-// desktop style
-// }
-// @media  (max-width: $breakpoint) {
-// mobile style
-// }
 
 #app {
   position: absolute;

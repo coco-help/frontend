@@ -67,8 +67,7 @@ export default {
               this.$router.push({ name: "Auth" , params: {phone:res.data.phone}});
             }
 
-          })
-          .catch(err => console.log("Axios-Fehler: ", err))
+          });
       }
     },
 
