@@ -61,6 +61,7 @@ export default {
   methods: {
     logout() {
       localStorage.clear();
+      axios.defaults.headers.common = {};
       this.$router.push({ name: "Home" });
     },
     toggle() {

@@ -1,6 +1,7 @@
 <template>
   <div class="HomeSignupBlock">
     <div class="signupBlock">
+      <div class="login" @click="login">anmelden</div>
       <span class="postalCode">
         <img src="../assets/house.svg" alt="PLZ" />
         <input
@@ -33,12 +34,17 @@ export default {
   },
   methods: {
     register: function() {
-      //this.$store.commit("inputZIP", this.zip);
-      this.$router.push({ name: "Register" , query: {zip:this.zip}});
+      if(this.zip.length==5){
+        this.$router.push({ name: "Register" , query: {zip:this.zip}});
+      }
     },
     clipinput: function(){
       this.zip=this.zip.substring(0,5);
+    },
+    login: function() {
+      this.$router.push({ path: "/login"})
     }
+
   }
 };
 </script>
@@ -51,6 +57,21 @@ button:focus {
   outline: none;
 }
 @media (min-width: 768px) {
+  .login {
+      right: 5vw;
+      top:5vh;
+      padding:8px;
+      position: absolute;
+      background-color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+
+      &:hover {
+        background-color:lightgray;
+        cursor: pointer;
+      }
+    }
   .postalCode {
     position: absolute;
     left: calc((100% - 306px) / 2);
@@ -96,6 +117,11 @@ button:focus {
       text-align: center;
       line-height: 10vh;
       font-size: 3.5vh;
+      &:hover {
+        opacity: 75%;
+        cursor: pointer;
+      }
+
       img {
         height: 6vh;
         padding-left: 2vh;
@@ -164,6 +190,7 @@ button:focus {
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.2);
   border: 1.6px solid rgba(255, 255, 255, 0.1);
+
   input {
     background: none;
     border: none;
