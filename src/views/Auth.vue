@@ -13,6 +13,7 @@
           placeholder="SMS CODE"
           max="9999"
           v-model="smsCode"
+          @input="clipInput"
         />
         <a @click="onceAgain" class="retry">Code erneut senden</a>
         <p class="notApproved">{{ notApproved }}</p>
@@ -72,6 +73,9 @@ export default {
           }
           })
         .catch(()=> this.notApproved = "Der eingegebene Code ist falsch!");
+    },
+    clipInput: function(){
+      this.smsCode=this.smsCode.substring(0,4);
     },
 
     clickNext() {
