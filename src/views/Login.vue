@@ -9,7 +9,7 @@
       />
       <div class="main_content">
         <div class="descr">
-          Willkommen zurück! Gib deine Nummer ein um weiter zu helfen.
+          Willkommen zurück! Gib deine Nummer ein um dich wieder anzumelden.
         </div>
         <div
           class="error"

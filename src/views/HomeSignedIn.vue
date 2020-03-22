@@ -2,10 +2,10 @@
     <div class="home">
       <div class="a c">
         <div class="header">
-            <img src="../assets/logo.png" class="logo">
+            <img src="../assets/logo.png" class="logo" @click="home">
         </div>
         <div class="state" v-if="onOff">
-            <p><b>Danke</b>, dass du hilfst.<br>Wir werden dich anrufen sobald es eine neue Anfrage in deiner Umgebung gibt.</p>
+            <p><b>Danke {{user.first_name}}</b>, dass du hilfst.<br>Wir werden dich unter {{user.phone}} anrufen sobald es eine neue Anfrage in deiner Umgebung gibt.</p>
         </div>
         <div class="state off" v-else>
             <p><b>Achtung!</b> Du hast eingstellt nicht erreichbar zu sein.<br>Um zu helfen ändere bitte dein Status.</p>
@@ -18,7 +18,7 @@
             <div class="icon arrow">
                 <img src="../assets/arrow.svg">
             </div>
-            <Share></Share>
+            <!-- <Share></Share> -->
         </div>
         <div class="grow"></div>
         <div class="education">
@@ -41,8 +41,9 @@
         </div>
         <div class="line"></div>
         <div class="logout" @click="logout()">Abmelden</div>
+        <div class="line"></div>
+        <div class="logout" @click="deleteAccount()">Account löschen</div>
       </div>
-
     </div>
 </template>
 
@@ -50,12 +51,13 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-import Share from "../components/Share.vue";
+//import Share from "../components/Share.vue";
 
 export default {
   data() {
     return {
-      onOff: true
+      onOff: true,
+      user: {}
     };
   },
   methods: {
@@ -64,11 +66,14 @@ export default {
       axios.defaults.headers.common = {};
       this.$router.push({ name: "Home" });
     },
+    deleteAccount() {
+      const token = jwt_decode(localStorage.getItem("token"));
+      axios.delete(`https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`).then(()=>this.updateUser()).catch(()=>this.updateUser());
+    },
     toggle() {
       //  console.log("ok");
       this.onOff = !this.onOff;
-      const token = jwt_decode("token");
-
+      const token = jwt_decode(localStorage.getItem("token"));
       axios.put(
         `https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`,
         { is_active: this.onOff }
@@ -76,10 +81,31 @@ export default {
       // .then(function(response) {
       //   console.log(response);
       // });
+    },
+    home: function() {
+      this.$router.push({ name: "Home" });
+    },
+    updateUser() {
+      const token = jwt_decode(localStorage.getItem("token"));
+      axios.defaults.headers.common["Authorization"] = localStorage.getItem(
+        "token"
+      );
+      axios
+        .get(
+          `https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`,
+          { is_active: this.onOff }
+        )
+        .then(res => {
+          this.user=res.data;
+          this.onOff=res.data.is_active;
+        }).catch(()=>this.logout());
     }
   },
   components: {
-    Share
+    // Share,
+  },
+  mounted() {
+    this.updateUser();
   }
 };
 </script>
@@ -102,6 +128,11 @@ export default {
         margin-top: 44px;
         height: 40px;
         width: 82px;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 75%;
+        }
       }
     }
 
