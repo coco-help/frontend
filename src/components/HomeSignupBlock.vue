@@ -59,7 +59,7 @@ button:focus {
   .postalCode {
     position: absolute;
     left: 10vw;
-    top: 30vh;
+    top: 35vh;
     height: 8vh;
     width: 20vw;
 
@@ -93,6 +93,21 @@ button:focus {
     right: 0;
     width: 40vw;
     height: 100vh;
+    .submitButton {
+    position: absolute;
+    color: white;
+    top: 45vh;
+    left: 0;
+    width: 40vw;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 3.5vh;
+    img {
+      height: 6vh;
+      padding-left: 2vh;
+      vertical-align: middle;
+    }
+  }
   }
 }
 @media (max-width: 768px) {
@@ -136,6 +151,21 @@ button:focus {
     position: relative;
     width: 100vw;
     min-height: 30vh;
+    .submitButton {
+    position: absolute;
+    color: white;
+    top: 15vh;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 3.5vh;
+    img {
+      height: 6vh;
+      padding-left: 2vh;
+      vertical-align: middle;
+    }
+  }
   }
 }
 .postalCode {
@@ -158,20 +188,6 @@ button:focus {
 }
 .HomeSignupBlock {
   background: #e73454;
-  .submitButton {
-    position: absolute;
-    color: white;
-    top: 15vh;
-    left: 0;
-    width: 100vw;
-    text-align: center;
-    line-height: 10vh;
-    font-size: 3.5vh;
-    img {
-      height: 6vh;
-      padding-left: 2vh;
-      vertical-align: middle;
-    }
-  }
+
 }
 </style>

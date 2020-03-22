@@ -10,16 +10,15 @@
         <a
           class="about"
           href=""
-        >About</a>
-        <a href="">Impressum</a>
-        <a href="">Datenschutz</a>
+        >About</a><br>
+        <a href="">Impressum</a><br>
+        <a href="">Datenschutz</a><br>
       </div>
       <p>coco - corona connect 2020</p>
     </div>
     <div class="column">
       <img
-        src=""
-        alt=""
+        src="../assets/wirvsvirus.png"
       >
     </div>
   </div>
@@ -47,6 +46,7 @@ img {
   margin-top: 3vh;
   a {
     margin-top: 4vh;
+    color: black;
   }
 }
 p {
