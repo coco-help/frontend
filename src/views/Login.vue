@@ -5,6 +5,7 @@
         class="logo"
         src="../assets/logo.png"
         alt="../assets/vinny.jpeg"
+        @click="home"
       />
       <div class="main_content">
         <div class="descr">
@@ -36,6 +37,10 @@
           />
         </div>
         <div class="bottom">
+          <div
+            class="back"
+            @click="$router.go(-1)"
+          >Zurück</div>
           <img
             @click="request"
             class="arrow_right"
@@ -111,7 +116,10 @@ export default {
             }
           });
 
-    }
+    },
+home: function() {}
+
+
   }
 };
 </script>
@@ -192,6 +200,22 @@ export default {
 
   .bottom {
     display: inline;
+
+    .back {
+      margin-top: 15px;
+      float: left;
+      width: 55px;
+      height: 19px;
+      font-family: Work Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      color: #a5a5a5;
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     .arrow_right {
       float: right;

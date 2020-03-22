@@ -272,6 +272,9 @@ export default {
       font-size: 16px;
       line-height: 19px;
       color: #a5a5a5;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .arrow_right {
       float: right;
