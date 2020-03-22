@@ -33,6 +33,7 @@
             class="input_field"
             id="input_name"
             placeholder=" Max Mustermann"
+            @keyup.enter="request"
           />
           <div class="mini">Nummer</div>
           <input
@@ -43,6 +44,7 @@
             class="input_field"
             id="input_number"
             placeholder=" +49 123 456789"
+            @keyup.enter="request"
           />
           <div class="mini">E-Mail</div>
           <input
@@ -52,6 +54,7 @@
             class="input_field"
             id="input_mail"
             placeholder=" ichwillhelfen@gmail.com"
+            @keyup.enter="request"
           />
         </div>
         <div class="bottom">

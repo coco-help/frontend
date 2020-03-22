@@ -10,6 +10,7 @@
           max="99999"
           maxlength="5"
           @input="clipinput"
+          @keyup.enter="register"
           placeholder="Bitte gib deine Postleitzahl an"
         />
       </span>
