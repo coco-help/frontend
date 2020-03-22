@@ -10,12 +10,15 @@
         </ul>
     </p>
       <div class="inputs">
-        <input type="text" name="name" v-model="name"  class="input_field" id="input_name" placeholder="Name">
-        <input type="number" name="number" v-model="number"  class="input_field" id="input_number" placeholder="Handynummer">
-        <input type="text" name="email" v-model="email"  class="input_field" id="input_mail" placeholder="E-Mail">
+        <div class="mini">Name</div>
+        <input type="text" name="name" v-model="name"  class="input_field" id="input_name" placeholder=" Max Mustermann">
+        <div class="mini">Nummer</div>
+        <input type="number" name="number" v-model="number"  class="input_field" id="input_number" placeholder=" +49 123 456789">
+        <div class="mini">E-Mail</div>
+        <input type="text" name="email" v-model="email"  class="input_field" id="input_mail" placeholder=" ichwillhelfen@gmail.com">
       </div>
       <div class="bottom">
-        <div class="back">Zurück</div>
+        <div class="back" @click="$router.go(-1)">Zurück</div>
         <img @click="request" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
       </div>
     </div>
@@ -127,6 +130,20 @@ export default {
 
   .inputs{
     width: 50%;
+
+    .mini{
+      height: 16px;
+
+      margin-bottom: 5px;
+
+      font-family: Work Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      color: #343434;
+
+    }
 
     .input_field {
       margin: auto;
