@@ -120,34 +120,30 @@ export default {
               });
             }
           })
-          .catch(res => {
-            if (res.data.error == "Phone number already registered") {
+          .catch(e => {
+            console.log(e);
+
               this.login();
-            }
+
           });
       }
     },
     login: function() {
-      if (this.checkForm()) {
         axios
           .post(
-            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/register",
+            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/login/"+this.number,
             {
-              name: this.name,
-              zip: this.$route.query.zip,
-              phone: this.number,
-              email: this.email
             }
           )
           .then(res => {
-            if (res.data.phone) {
+            if (res.data.message=="user_message_sent") {
               this.$router.push({
                 name: "Auth",
-                params: { phone: res.data.phone }
+                params: { phone: this.phone }
               });
             }
           });
-      }
+
     },
 
     checkForm: function() {

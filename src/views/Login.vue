@@ -1,15 +1,26 @@
 <template>
   <div class="register">
     <div class="a c">
-      <img class="logo" src="../assets/logo.png" alt="../assets/vinny.jpeg" />
+      <img
+        class="logo"
+        src="../assets/logo.png"
+        alt="../assets/vinny.jpeg"
+      />
       <div class="main_content">
         <div class="descr">
           Willkommen zurück! Gib deine Nummer ein um weiter zu helfen.
         </div>
-        <div class="error" v-if="errors.length != 0">
+        <div
+          class="error"
+          v-if="errors.length != 0"
+        >
           <b class="error">Bitte korrigiere den/die folgenden Fehler:</b>
           <ul>
-            <li class="error" :key="error" v-for="error in errors">{{ error }}</li>
+            <li
+              class="error"
+              :key="error"
+              v-for="error in errors"
+            >{{ error }}</li>
           </ul>
         </div>
         <div class="inputs">
@@ -39,7 +50,7 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 // @ is an alias to /src
 
 export default {
@@ -68,50 +79,23 @@ export default {
   methods: {
     request: function() {
       if (this.checkForm()) {
-        axios
-          .post(
-            "https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/register",
-            {
-              name: this.name,
-              zip: this.$route.query.zip,
-              phone: this.number,
-              email: this.email
-            }
-          )
-          .then(res => {
-            if (res.data.phone) {
-              this.$router.push({
-                name: "Auth",
-                params: { phone: res.data.phone }
-              });
-            }
-          });
-      }
+        //request number and login
+        }
     },
 
     checkForm: function() {
       this.errors = [];
-      if (this.email) {
+      if (this.number) {
         return true;
-      }
-      if (!this.name) {
-        this.errors.push("Name benötigt.");
       }
       if (!this.number) {
         this.errors.push("Handynummer benötigt.");
-      }
-      if (!this.validateEmail(this.email)) {
-        this.errors.push("E-Mail ist nicht korrekt.");
       }
     },
     phoneValidator: function() {
       if (this.number.startsWith("0")) {
         this.number = "+49" + this.number.substring(1);
       }
-    },
-    validateEmail: function(email) {
-      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
     }
   }
 };
