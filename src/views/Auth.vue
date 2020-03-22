@@ -44,12 +44,16 @@ export default {
 
   data() {
     return {
-      number: "+49 123 456789",
+      phone: '',
       smsCode: "",
       jwt: null,
       approved: false,
       notApproved: ""
     };
+  },
+  mounted() {
+    this.phone = this.$route.params.phone;
+    this.smsCode = this.$route.query.code;
   },
 
   methods: {
@@ -59,17 +63,19 @@ export default {
 
     sendCode() {
       axios
-        .post("", { body: this.smsCode })
-        .then(response => (this.jwt = response));
+        .get(`https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/verify/${this.phone}?code=${this.smsCode}`)
+        .then(res => {
+          if(res.data.jwt){
+            this.$router.push({ path: "/h" });
+          }else{
+             this.notApproved = "Der eingegebene Code ist falsch!";
+          }
+          })
+        .catch(()=> this.notApproved = "Der eingegebene Code ist falsch!");
     },
 
     clickNext() {
       this.sendCode();
-      if (this.approved == true) {
-        this.$router.push({ path: "/h" });
-      } else {
-        this.notApproved = "Der eingegebene Code ist falsch!";
-      }
     },
 
     onceAgain: function() {

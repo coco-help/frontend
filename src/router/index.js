@@ -22,7 +22,7 @@ const routes = [
     component: Register
   },
   {
-    path: '/auth',
+    path: '/auth/:phone',
     name: 'Auth',
     component: Auth
   },
