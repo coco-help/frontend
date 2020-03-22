@@ -56,10 +56,29 @@ textarea:focus,
 button:focus {
   outline: none;
 }
+.illustration {
+  position: absolute;
+  background: url("../assets/Illu.png");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 15vh;
+  width: 100%;
+  left: 10%;
+  height: 33vh;
+}
+.infotext {
+  position: absolute;
+  top: 40vh;
+  font-weight: 300;
+  max-width: 80vw;
+  font-size: 3vh;
+  margin-left: 10vw;
+}
 @media (min-width: 768px) {
   .HomeMainBlock {
     position: relative;
-    min-height: 70vh;
+    min-height: 90vh;
   }
   .logo {
     position: absolute;
@@ -73,7 +92,7 @@ button:focus {
   }
   .infotext {
     position: absolute;
-    top: 40vh;
+    top: 50vh;
     font-weight: 300;
     max-width: 30vw;
     font-size: 3vh;
@@ -97,30 +116,15 @@ button:focus {
       top: 3vh;
       width: 12vh;
     }
+    .illustration {
+      height: 23vh;
+      left: 5%;
+    }
   }
   .signupBlock {
     position: relative;
     width: 100vw;
     min-height: 30vh;
   }
-}
-.illustration {
-  position: absolute;
-  background: url("../assets/Illu.png");
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  top: 15vh;
-  width: 100%;
-  left: 0%;
-  height: 23vh;
-}
-.infotext {
-  position: absolute;
-  top: 40vh;
-  font-weight: 300;
-  max-width: 80vw;
-  font-size: 3vh;
-  margin-left: 10vw;
 }
 </style>
