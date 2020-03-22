@@ -198,6 +198,11 @@ export default {
   height: 40px;
   margin: 44px 30px 0;
   align-self: start;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 75%;
+  }
 }
 
 .main_content {
@@ -282,6 +287,11 @@ export default {
     }
     .arrow_right {
       float: right;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 75%;
+      }
     }
   }
 }
