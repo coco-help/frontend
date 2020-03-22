@@ -8,7 +8,10 @@
     </div>
       <p class="slogan">Ob einkaufen, Zuhören oder mit dem Hund Gassi gehen – wir verbinden dich telefonisch mit einer hilfesuchenden Person in deiner Umgebung. </p>
     <div class="journey">
-      <a href="">user journey / ablauf</a>
+
+    </div>
+    <div class="video">
+      <iframe  src="https://www.youtube.com/embed/LqPrL1DDkUo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </template>
@@ -35,14 +38,18 @@ export default {
   width: 100%;
 
   img {
-    width: 100%;
+    width: 50%;
+    margin:5vh;
+    @media (max-width: 768px) {
+      display: none;
+  }
   }
   .slogan {
-    margin-top: 10vh;
-    margin-left: 10vh;
+    margin-top: 10%;
+    margin-left: 10%;
     text-align: left;
     font-weight: 300;
-    max-width: 30vw;
+    max-width: 70%;
     font-size: 3vh;
   }
   .journey {
@@ -53,7 +60,18 @@ export default {
     font-size: 3vh;
     letter-spacing: 0.5vh;
   }
+  .video{
+    iframe{
+      width:30vh;
+      height:20vh;
+      display: inline-block;
+    }
+    width: 100%;
+    text-align: center;
+  }
+
 }
+
 
 
 </style>

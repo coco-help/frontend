@@ -84,7 +84,7 @@ button:focus {
     position: absolute;
     left: 60px;
     top: 30px;
-    height: 40px;
+    height: 60px;
   }
   .landingBlock {
     position: relative;
