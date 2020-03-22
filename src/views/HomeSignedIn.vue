@@ -10,16 +10,7 @@
         <div class="state off" v-else>
             <p><b>Achtung!</b> Du hast eingstellt nicht erreichbar zu sein.<br>Um zu helfen ändere bitte dein Status.</p>
         </div>
-        <div class="invite">
-            <div class="icon friends">
-                <img src="../assets/friends.svg">
-            </div>
-            <p>Freunde einladen auch zu helfen</p>
-            <div class="icon arrow">
-                <img src="../assets/arrow.svg">
-            </div>
-            <!-- <Share></Share> -->
-        </div>
+        <Share></Share>
         <div class="grow"></div>
         <div class="education">
             <h2>Education</h2>
@@ -51,7 +42,7 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-//import Share from "../components/Share.vue";
+import Share from "../components/Share.vue";
 
 export default {
   data() {
@@ -68,7 +59,12 @@ export default {
     },
     deleteAccount() {
       const token = jwt_decode(localStorage.getItem("token"));
-      axios.delete(`https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`).then(()=>this.updateUser()).catch(()=>this.updateUser());
+      axios
+        .delete(
+          `https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`
+        )
+        .then(() => this.updateUser())
+        .catch(() => this.updateUser());
     },
     toggle() {
       //  console.log("ok");
@@ -96,13 +92,14 @@ export default {
           { is_active: this.onOff }
         )
         .then(res => {
-          this.user=res.data;
-          this.onOff=res.data.is_active;
-        }).catch(()=>this.logout());
+          this.user = res.data;
+          this.onOff = res.data.is_active;
+        })
+        .catch(() => this.logout());
     }
   },
   components: {
-    // Share,
+    Share
   },
   mounted() {
     this.updateUser();
@@ -144,35 +141,6 @@ export default {
 
       &.off {
         background-color: rgba($color: #e73454, $alpha: 0.1);
-      }
-    }
-
-    .invite {
-      margin-top: 14px;
-      display: flex;
-      flex-flow: row;
-      background: #ffffff;
-      border: 1px solid #303030;
-      border-radius: 10px;
-      padding: 10px;
-      align-items: center;
-
-      .friends {
-        min-width: 46px;
-        height: 46px;
-        background-color: #262d37;
-        border-radius: 50%;
-        margin-right: 14px;
-      }
-      p {
-        max-width: 140px;
-
-        margin-right: auto;
-      }
-      .arrow {
-        height: 18px;
-        width: 18px;
-        margin-right: 14px;
       }
     }
 
