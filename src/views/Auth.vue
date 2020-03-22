@@ -14,10 +14,11 @@
           v-model="smsCode">
         <br>
         <a @click="onceAgain" class="retry">Code erneut senden</a>
+        <p class='notApproved'>{{ notApproved }}</p>
 
         <div class="bottom">
           <div @click="clickBack" class="back">Zurück</div>
-          <img @click="sendCode" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
+          <img @click="clickNext" class="arrow_right" src="../assets/arrow_right.svg" alt="../assets/vinny.jpeg">
         </div>
     </div>
     <div class="column is-half" id="half">
@@ -39,7 +40,8 @@ export default {
       number: null,
       smsCode: '',
       jwt: null,
-      approved: false
+      approved: false,
+      notApproved: '',
     }
   },
 
@@ -56,11 +58,16 @@ export default {
   },
 
   clickNext() {
-    //sendCode...
-
+    this.sendCode()
+    if (this.approved == true) {
+      this.$router.push({ path:'/h'})
+    } else {
+      this.notApproved = 'Der eingegebene Code ist falsch!'
+    }
   },
 
   onceAgain: function(){
+    //send SMS Code again?
   }
 }
 };
@@ -118,6 +125,10 @@ export default {
     &:hover {
         color:#ef768c;
     }
+  }
+  .notApproved {
+    color: red;
+    font-weight: bold;
   }
 
   .bottom {
