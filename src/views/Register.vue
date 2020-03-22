@@ -101,16 +101,17 @@ export default {
 .logo {
   width: 82px;
   height: 33px;
+  margin: 44px 30px 0;
 }
 
 .main_content {
-  margin: auto;
-  width: 315px;
+  margin: 24px 30px 0;
 
 
   .descr {
-    margin-bottom: 37px;
+    margin-bottom: 16px;
     word-wrap:break-word;
+    font-size: 18px;
 
     .location_plz {
       font-weight: 600;
@@ -129,11 +130,7 @@ export default {
     color: #E73454;
   }
 
-
-
-
   .inputs{
-    width: 50%;
 
     .mini{
       height: 16px;
@@ -150,8 +147,10 @@ export default {
     }
 
     .input_field {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      padding-left: 14px;
       margin: auto;
-      margin-bottom: 39px;
+      margin-bottom: 24px;
       display: block;
       font-size: 18px;
       width: 315px;
@@ -162,10 +161,10 @@ export default {
     }
 
     input:focus {
-      outline: 3px solid #E73454;
-      box-sizing: border-box;
-      border: none;
-      filter: blur(0.1px);
+      border: 1.6px solid #E73454;
+      box-shadow: 0 0 5px #E73454;
+      border-radius: 4px;
+      outline: none;
     }
   }
 
@@ -189,6 +188,12 @@ export default {
     }
   }
 
+}
+
+@media (min-width: 768px) {
+.main_content {
+  width: 315px;
+}
 }
 
 </style>
