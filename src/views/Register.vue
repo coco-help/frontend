@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <div class="b">text</div>
+    <div class="b"></div>
   </div>
 </template>
 
