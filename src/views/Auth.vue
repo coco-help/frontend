@@ -69,7 +69,7 @@ export default {
         .then(res => {
           if(res.data.token){
             localStorage.setItem('token', res.data.token);
-            axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token;
+            axios.defaults.headers.common['Authorization'] = res.data.token;
             this.$router.push({ path: "/h" });
           }else{
              this.notApproved = "Der eingegebene Code ist falsch!";

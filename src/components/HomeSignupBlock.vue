@@ -1,9 +1,15 @@
 <template>
   <div class="HomeSignupBlock">
     <div class="signupBlock">
-      <div class="login" @click="login">anmelden</div>
+      <div
+        class="login"
+        @click="login"
+      >anmelden</div>
       <span class="postalCode">
-        <img src="../assets/house.svg" alt="PLZ" />
+        <img
+          src="../assets/house.svg"
+          alt="PLZ"
+        />
         <input
           v-model="zip"
           type="number"
@@ -16,11 +22,21 @@
           placeholder="Bitte gib deine Postleitzahl an"
         />
       </span>
-      <div v-if="zipError" class="zipError">Überprüfe die eingegbene Postleitzahl.</div>
+      <div
+        v-if="zipError"
+        class="zipError"
+      >Überprüfe die eingegbene Postleitzahl.</div>
 
-      <span class="submitButton" @click="register">
+      <span
+        class="submitButton"
+        @click="register"
+      >
         <span>Hilfe anbieten</span>
-        <img @click="register" class="arrow_right" src="../assets/arrow_white.svg" />
+        <img
+          @click="register"
+          class="arrow_right"
+          src="../assets/arrow_white.svg"
+        />
       </span>
     </div>
   </div>
@@ -142,6 +158,21 @@ button:focus {
   }
 }
 @media (max-width: 768px) {
+  .login {
+    top: 25vh;
+    left: 40vw;
+    padding: 4px;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+
+    &:hover {
+      background-color: lightgray;
+      cursor: pointer;
+    }
+  }
   .postalCode {
     position: absolute;
     left: 5vw;
