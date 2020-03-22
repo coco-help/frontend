@@ -8,6 +8,7 @@ import About from '../views/About.vue'
 import Impressum from '../views/Impressum'
 import Datenschutz from '../views/Datenschutz'
 import Login from '../views/Login'
+import Education from '../views/Education.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     component: About
+  },
+  {
+    path: '/education/:beitrag',
+    name: 'Education',
+    component: Education
   },
   {
     path: '/impressum',
