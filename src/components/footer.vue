@@ -7,6 +7,7 @@
       >
       <br>
       <div class="links">
+        <a href="https://github.com/coco-help">Open Source on Github</a><img src="../assets/GitHub-Mark.png" class="github"><br>
         <a
           class="about"
           href=""
@@ -83,9 +84,14 @@ export default {
 
 .links {
   margin-top: 3vh;
+  .github {
+    height: 30px;
+    border: solid red 1px;
+  }
   a {
     margin-top: 4vh;
     color: black;
+    border: solid red 1px;
     &:hover {
       color: gray;
     }
