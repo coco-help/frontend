@@ -1,10 +1,10 @@
 <template lang="html">
     <div class="home">
-        
+
         <div class="header">
             <img src="../assets/logo.png" class="logo">
         </div>
-        <div class="state">
+        <div class="state"></div>
             <p><b>Danke</b>, dass du hilfts.<br>Wir werden dich anrufen sobald es eine neue Anfrage in deiner umgebung gibt.</p>
         </div>
         <div class="invite">
@@ -48,7 +48,7 @@ export default {
   methods: {
     logout() {},
     toggle() {
-      console.log("ok");
+    //  console.log("ok");
 
       this.onOff = !this.onOff;
     }

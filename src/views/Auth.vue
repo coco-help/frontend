@@ -10,6 +10,7 @@
           class="input_field"
           id="sms_auth"
           placeholder="SMS CODE"
+          max="9999"
           v-model="smsCode">
         <br>
         <a @click="onceAgain" class="retry">Code erneut senden</a>
@@ -37,7 +38,7 @@ export default {
     return{
       number: null,
       smsCode: '',
-      realCode: ''
+      realCode: '',
     }
   },
 
@@ -49,9 +50,8 @@ export default {
 
   sendCode() {
     axios
-      .post('https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/register', {body: this.smsCode})
-      .then(response => (this.realCode = response))
-      .catch(err => console.log("Axios-Fehler: " , err))
+      .post('', {body: this.smsCode})
+      .then(response => (this.realCode = response));
   },
 
   clickNext() {
@@ -77,7 +77,7 @@ export default {
     margin-top: 30%;
     text-align: left;
   }
-  
+
   #verify {
     margin-top: 5%;
     font-weight: 500;
@@ -95,7 +95,7 @@ export default {
     margin-top: 4%;
     font-size: 18px;
     font-weight: bold;
-    
+
     width: 232px;
     height: 49px;
     border: 1.6px solid #000000;
