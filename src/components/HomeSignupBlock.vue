@@ -10,11 +10,13 @@
           min="0"
           max="99999"
           maxlength="5"
+          minlength="5"
           @input="clipinput"
           @keyup.enter="register"
           placeholder="Bitte gib deine Postleitzahl an"
         />
       </span>
+      <div v-if="zipError" class="zipError">Überprüfe die eingegbene Postleitzahl.</div>
 
       <span class="submitButton" @click="register">
         <span>Hilfe anbieten</span>
@@ -29,22 +31,24 @@ export default {
   name: "HomeSignupBlock",
   data() {
     return {
-      zip: null
+      zip: "",
+      zipError: false
     };
   },
   methods: {
     register: function() {
-      if(this.zip.length==5){
-        this.$router.push({ name: "Register" , query: {zip:this.zip}});
+      if (this.zip.length == 5) {
+        this.$router.push({ name: "Register", query: { zip: this.zip } });
+      } else {
+        this.zipError = true;
       }
     },
-    clipinput: function(){
-      this.zip=this.zip.substring(0,5);
+    clipinput: function() {
+      this.zip = this.zip.substring(0, 5);
     },
     login: function() {
-      this.$router.push({ path: "/login"})
+      this.$router.push({ path: "/login" });
     }
-
   }
 };
 </script>
@@ -56,22 +60,24 @@ textarea:focus,
 button:focus {
   outline: none;
 }
+
 @media (min-width: 768px) {
   .login {
-      right: 5vw;
-      top:5vh;
-      padding:8px;
-      position: absolute;
-      background-color: white;
-      border-radius: 5px;
-      font-weight: bold;
-      text-align: center;
+    right: 5vw;
+    top: 5vh;
+    padding: 8px;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
 
-      &:hover {
-        background-color:lightgray;
-        cursor: pointer;
-      }
+    &:hover {
+      background-color: lightgray;
+      cursor: pointer;
     }
+  }
+
   .postalCode {
     position: absolute;
     left: calc((100% - 306px) / 2);
@@ -128,6 +134,11 @@ button:focus {
         vertical-align: middle;
       }
     }
+    .zipError {
+      color: #fff;
+      margin: 32vh auto 0;
+      text-align: center;
+    }
   }
 }
 @media (max-width: 768px) {
@@ -150,9 +161,7 @@ button:focus {
       width: 70vw;
 
       &::placeholder {
-        margin-top: -1vh;
         font-size: 16px;
-        line-height: 8vh;
       }
     }
   }
@@ -182,6 +191,10 @@ button:focus {
         padding-left: 2vh;
         vertical-align: middle;
       }
+    }
+    .zipError {
+      color: #fff;
+      margin: 9vh 30px 0;
     }
   }
 }
