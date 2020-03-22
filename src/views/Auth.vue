@@ -3,9 +3,9 @@
     <div class="column" id="auth">
       <img class="logo" src="../assets/logo.png" />
       <p id="verify">Bitte gib den 4-stelligen Code ein, den wir dir geschickt haben an:</p>
-      <b id="helpernumber">{{ number }}</b>
+      <b id="helperphone">{{ phone }}</b>
       <input
-        type="number"
+        type="phone"
         name="sms"
         class="input_field"
         id="sms_auth"
@@ -43,12 +43,16 @@ export default {
 
   data() {
     return {
-      number: "+49 123 456789",
+      phone: '',
       smsCode: "",
       jwt: null,
       approved: false,
       notApproved: ""
     };
+  },
+  mounted() {
+    this.phone = this.$route.params.phone;
+    this.smsCode = this.$route.query.code;
   },
 
   methods: {
@@ -58,17 +62,18 @@ export default {
 
     sendCode() {
       axios
-        .post("", { body: this.smsCode })
-        .then(response => (this.jwt = response));
+        .get(`https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/verify/${this.phone}?code=${this.smsCode}`)
+        .then(res => {
+          if(res.data.jwt){
+            this.$router.push({ path: "/h" });
+          }else{
+             this.notApproved = "Der eingegebene Code ist falsch!";
+          }
+          }).catch(()=> this.notApproved = "Der eingegebene Code ist falsch!");
     },
 
     clickNext() {
       this.sendCode();
-      if (this.approved == true) {
-        this.$router.push({ path: "/h" });
-      } else {
-        this.notApproved = "Der eingegebene Code ist falsch!";
-      }
     },
 
     onceAgain: function() {
@@ -99,7 +104,7 @@ export default {
     margin-top: 24px;
     font-size: 18px;
   }
-  #helpernumber {
+  #helperphone {
     margin-top: 2%;
     font-weight: bold;
     font-size: 18px;
@@ -129,8 +134,8 @@ export default {
       font-size: 20px;
     }
   }
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
+  input[type="phone"]::-webkit-inner-spin-button,
+  input[type="phone"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }

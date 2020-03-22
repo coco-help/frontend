@@ -57,13 +57,18 @@ export default {
     request: function () {
       if (this.checkForm()) {
         axios
-          .post('https://rdtrvrhdsg.execute-api.eu-central-1.amazonaws.com/prod/register', {
+          .post('https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/register', {
             name: this.name,
             zip: this.$route.query.zip,
             phone: this.number,
             email: this.email
-          });
-          //.catch(err => console.log("Axios-Fehler: ", err))
+          }).then((res)=> {
+            if(res.data.phone){
+              this.$router.push({ name: "Auth" , params: {phone:res.data.phone}});
+            }
+
+          })
+          .catch(err => console.log("Axios-Fehler: ", err))
       }
     },
 
