@@ -1,13 +1,12 @@
 <template lang="html">
     <div class="home">
-
         <div class="header">
             <img src="../assets/logo.png" class="logo">
         </div>
         <div class="state" v-if="onOff">
             <p><b>Danke</b>, dass du hilfst.<br>Wir werden dich anrufen sobald es eine neue Anfrage in deiner Umgebung gibt.</p>
         </div>
-        <div class="state" :class="{off: onOff}" v-else>
+        <div class="state off" v-else>
             <p><b>Achtung!</b> Du hast eingsetllt nicht erreichbar zu sein.<br>Um zu helfen ändere bitte dein Status.</p>
         </div>
         <div class="invite">
@@ -37,11 +36,14 @@
             </div>
         </div>
         <div class="line"></div>
-        <a class="logout" @click="logout()">Abmelden</a>
+        <router-link to="/" class="logout" @click="logout()">Abmelden</router-link> 
     </div>
 </template>
 
 <script>
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+
 export default {
   data() {
     return {
@@ -51,9 +53,17 @@ export default {
   methods: {
     logout() {},
     toggle() {
-    //  console.log("ok");
-
+      //  console.log("ok");
       this.onOff = !this.onOff;
+      const token = jwt_decode("token");
+
+      axios.post(
+        `https://7xbv26cd6k.execute-api.eu-central-1.amazonaws.com/production/helper/${token.phone}`,
+        { is_active: this.onOff }
+      );
+      // .then(function(response) {
+      //   console.log(response);
+      // });
     }
   }
 };
@@ -81,8 +91,8 @@ export default {
     border-radius: 10px;
     padding: 20px;
 
-    &.off{
-      background-color: red;
+    &.off {
+      background-color: rgba($color: #e73454, $alpha: 0.1);
     }
   }
 
