@@ -1,6 +1,7 @@
 <template>
   <div class="HomeSignupBlock">
     <div class="signupBlock">
+      <button class="login">anmelden</button>
       <span class="postalCode">
         <img src="../assets/house.svg" alt="PLZ" />
         <input
@@ -164,6 +165,7 @@ button:focus {
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.2);
   border: 1.6px solid rgba(255, 255, 255, 0.1);
+
   input {
     background: none;
     border: none;
