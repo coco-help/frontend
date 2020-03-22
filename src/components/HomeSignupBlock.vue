@@ -61,7 +61,7 @@ button:focus {
     left: 10vw;
     top: 35vh;
     height: 8vh;
-    width: 20vw;
+    width: 306px;
 
     img {
       position: absolute;
