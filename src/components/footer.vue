@@ -5,7 +5,7 @@
       <br />
       <div class="links">
         <div>
-          <a href="https://github.com/coco-help">Open Source on Github</a>
+          <a href="https://github.com/coco-help" target="_blank">Open Source on GitHub</a>
           <br>
           <a class="about" href @click="clickAbout">About</a>
           <br/>
@@ -15,13 +15,13 @@
           <br/>
         </div>
         <div class="symbols">
-          <img src="../assets/GitHub-Mark.png" class="github" />
+          <a href="https://github.com/coco-help" target="_blank"><img src="../assets/GitHub-Mark.png" class="github" /></a>
         </div>
       </div>
       <p>coco - corona connect 2020</p>
     </div>
 
-    <a href="https://devpost.com/software/corona-connect">
+    <a href="https://devpost.com/software/corona-connect" target="_blank">
       <img src="../assets/wirvsvirus.png" class="wirvsvirus" />
     </a>
   </div>
@@ -93,6 +93,7 @@ export default {
   .github {
     align-items: flex-end;
     height: 25px;
+    background-color: #f5f5f5;
 
     &:hover {
       cursor: pointer;
