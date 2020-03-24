@@ -5,8 +5,8 @@
             <h1>Alles was du zu Covid-19 wissen solltest.</h1>
         </div>
         <div class="content">
-            <h2>Uhrsprung</h2>
-            <a>link</a>
+            <h2>Ursprung</h2>
+            <a href="https://www.infektionsschutz.de/coronavirus/">link</a>
         </div>
     </div>
 </template>

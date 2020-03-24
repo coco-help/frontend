@@ -1,35 +1,30 @@
 <template>
   <div class="Footer">
     <div class="left">
-      <img
-        class="logo"
-        src="../assets/logo.png"
-      >
-      <br>
+      <img class="logo" src="../assets/logo.png" />
+      <br />
       <div class="links">
-        <a
-          class="about"
-          href=""
-          @click="clickAbout"
-        >About</a><br>
-        <a
-          href=""
-          @click="clickImpressum"
-        >Impressum</a><br>
-        <a
-          href=""
-          @click="clickDatenschutz"
-        >Datenschutz</a><br>
+        <div>
+          <a href="https://github.com/coco-help" target="_blank">Open Source on GitHub</a>
+          <br>
+          <a class="about" href @click="clickAbout">About</a>
+          <br/>
+          <a href @click="clickImpressum">Impressum</a>
+          <br/>
+          <a href @click="clickDatenschutz">Datenschutz</a>
+          <br/>
+        </div>
+        <div class="symbols">
+          <a href="https://github.com/coco-help" target="_blank"><img src="../assets/GitHub-Mark.png" class="github" /></a>
+        </div>
       </div>
       <p>coco - corona connect 2020</p>
     </div>
 
-    <a href="https://devpost.com/software/corona-connect"><img
-        src="../assets/wirvsvirus.png"
-        class="wirvsvirus"
-      ></a>
+    <a href="https://devpost.com/software/corona-connect" target="_blank">
+      <img src="../assets/wirvsvirus.png" class="wirvsvirus" />
+    </a>
   </div>
-
 </template>
 
 <script>
@@ -72,22 +67,37 @@ export default {
 
 .logo {
   height: auto;
-  width:20%;
-  margin-top:1vh;
+  width: 20%;
+  margin-top: 1vh;
 }
 
 .left {
   position: relative;
-  padding:5vw;
+  padding: 5vw;
 }
 
 .links {
+  display: flex;
+
   margin-top: 3vh;
+  flex-flow: row;
   a {
-    margin-top: 4vh;
+    align-items: flex-start;
     color: black;
+    margin-right: 0.5vw;
+
     &:hover {
       color: gray;
+    }
+  }
+  .github {
+    align-items: flex-end;
+    height: 25px;
+    background-color: #f5f5f5;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 75%;
     }
   }
 }
