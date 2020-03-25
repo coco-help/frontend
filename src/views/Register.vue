@@ -64,10 +64,15 @@
             @click="$router.go(-1)"
           >Zurück</div>
           <img
+            v-if="isDisplayed"
             @click="request"
-            class="arrow_right"
+            v-bind:class="[isDisplayed ? 'arrow_right' : 'arrow_right_vanished']"
             src="../assets/arrow_right.svg"
-            alt="../assets/vinny.jpeg"
+          />
+          <img
+            v-else
+            v-bind:class="[isDisplayed ? 'arrow_right' : 'arrow_right_vanished']"
+            src="../assets/arrow_right.svg"
           />
         </div>
       </div>
@@ -90,7 +95,8 @@ export default {
       name: null,
       number: null,
       email: null,
-      zip: null
+      zip: null,
+      isDisplayed: true
     };
   },
 
@@ -104,6 +110,9 @@ export default {
     //.catch(err => console.log("Axios-Fehler: " , err))
   },
   methods: {
+    toggleDisplay: function() {
+      this.isDisplayed = !this.isDisplayed;
+    },
     request: function() {
       if (this.checkForm()) {
         axios
@@ -128,6 +137,7 @@ export default {
               this.login();
 
           });
+          this.toggleDisplay();
       }
     },
     login: function() {
@@ -149,7 +159,6 @@ export default {
           });
 
     },
-
     checkForm: function() {
       this.errors = [];
       if (
@@ -290,8 +299,13 @@ export default {
 
       &:hover {
         cursor: pointer;
-        opacity: 75%;
+        opacity: 0.75;
       }
+    }
+    .arrow_right_vanished {
+      float:right;
+      opacity: 0.3;
+      cursor: not-allowed;
     }
   }
 }
