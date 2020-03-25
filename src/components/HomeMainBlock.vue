@@ -2,8 +2,14 @@
   <div class="HomeMainBlock">
     <div class="landingBlock">
       <a href="tel:+1 956 247 4513" class="telnum">+1 956 247 4513</a>
-      <div class="telnum-text">..wenn du Hilfe benötigst</div>
+      <div class="telnum-text">..wenn du Hilfe benötigst<br><span style="font-size: 1vh;opacity:0.5">Deutsche nummer folgt</span></div>
+      <a href="https://karmakurier.org/">
       <img src="../assets/logo.png" alt="COCO" class="logo" />
+      <div class="karma">ist jetzt ein Teil von<br>
+       <video data-v-378cfe59="" autoplay="autoplay" muted="muted" playsinline="" class="video" src="https://karmakurier.org/media/logo_animated_cropped.41c6ab91.mp4" type="video/mp4"></video>
+      </div>
+      </a>
+
       <div class="illustration"></div>
       <div
         class="infotext"
@@ -29,6 +35,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+  .logo{
+    opacity:0.7;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  }
+  .karma{
+    position: absolute;
+    top:50px;
+    left:28px;
+    color:gray;
+    font-weight: 700;
+    text-align: center;
+    font-size:12px;
+    .video{
+      display: inline-block;
+      margin-left:1vw;
+      height: 6vh !important;
+    }
+
+  }
 .telnum-text {
   font-size: 1.5vh;
   position: absolute;
@@ -82,9 +108,9 @@ button:focus {
   }
   .logo {
     position: absolute;
-    left: 60px;
-    top: 30px;
-    height: 60px;
+    left: 20px;
+    top: 10px;
+    height: 45px;
   }
   .landingBlock {
     position: relative;
@@ -100,11 +126,14 @@ button:focus {
   }
 }
 @media (max-width: 768px) {
+
+
+
   .logo {
     position: absolute;
     left: 30px;
-    top: 44px;
-    height: 40px;
+    top: 20px;
+    height: 35px;
   }
   .landingBlock {
     position: relative;
