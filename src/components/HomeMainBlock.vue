@@ -6,7 +6,7 @@
       <a href="https://karmakurier.org/">
       <img src="../assets/logo.png" alt="COCO" class="logo" />
       <div class="karma">ist jetzt ein Teil von<br>
-       <video data-v-378cfe59="" autoplay="autoplay" muted="muted" playsinline="" class="video" src="https://karmakurier.org/media/logo_animated_cropped.41c6ab91.mp4" type="video/mp4"></video>
+       <img src="../assets/karmalogo.png" alt="COCO" class="karmalogo" />
       </div>
       </a>
 
@@ -38,20 +38,20 @@ export default {
   .logo{
     opacity:0.7;
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    width: auto!important;
   filter: grayscale(100%);
   }
   .karma{
     position: absolute;
     top:50px;
-    left:28px;
+    left:30px;
     color:gray;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     font-size:12px;
-    .video{
+    .karmalogo{
       display: inline-block;
-      margin-left:1vw;
-      height: 6vh !important;
+      height: 55px !important;
     }
 
   }
