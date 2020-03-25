@@ -9,7 +9,7 @@
           <br>
           <a class="about" href @click="clickAbout">About</a>
           <br/>
-          <a href @click="clickImpressum">Impressum</a>
+          <a href="https://karmakurier.org/impressum">Impressum</a>
           <br/>
           <a href @click="clickDatenschutz">Datenschutz</a>
           <br/>
