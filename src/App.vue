@@ -34,8 +34,6 @@ p {
 b {
   font-weight: 600;
 }
-h1 {
-}
 h2 {
   font-weight: 600;
   font-size: 18px;

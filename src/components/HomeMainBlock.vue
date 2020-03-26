@@ -5,9 +5,6 @@
       <div class="telnum-text">..wenn du Hilfe benötigst<br><span style="font-size: 1vh;opacity:0.5">Deutsche nummer folgt</span></div>
       <a href="https://karmakurier.org/">
       <img src="../assets/logo.png" alt="COCO" class="logo" />
-      <div class="karma">ist jetzt ein Teil von<br>
-       <img src="../assets/karmalogo.png" alt="COCO" class="karmalogo" />
-      </div>
       </a>
 
       <div class="illustration"></div>
@@ -36,10 +33,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .logo{
-    opacity:0.7;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     width: auto!important;
-  filter: grayscale(100%);
   }
   .karma{
     position: absolute;
