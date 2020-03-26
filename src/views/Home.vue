@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <HomeMainBlock/>
+    <FusionBanner class='banner'/>
     <Content/>
     <Footer/>
   </div>
@@ -11,13 +12,15 @@
 import HomeMainBlock from '@/components/HomeMainBlock.vue'
 import Footer from '@/components/footer.vue'
 import Content from '@/components/content.vue'
+import FusionBanner from '@/components/FusionBanner.vue'
 
 export default {
   name: 'Home',
   components: {
     HomeMainBlock,
     Footer,
-    Content
+    Content,
+    FusionBanner
   }
 }
 </script>
@@ -25,6 +28,9 @@ export default {
 @media (min-width: 768px) {
   .home {
     width: 60vw;
+  }
+  .banner {
+    margin-left: 5vw;
   }
 }
 @media (max-width: 768px) {
