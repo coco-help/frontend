@@ -5,8 +5,8 @@
     </div>
     <div class="fusionText">
       <p>
-        <b class="karma">karmakurier</b> und
-        <b class="coco">COCO corona connect.</b>
+        <b class="karma">COCO corona connect</b> und
+        <b class="coco">karmakurier.</b>
         <br />
         <b>füreinander. miteinander. gemeinsam stark</b>
       </p>
@@ -15,11 +15,11 @@
       <p>Mit dieser Fusion vereinen wir die Technologien und Konzepte beider Projekte.</p>
       <p>
         Hier gehts zum
-        <a href="https://devpost.com/software/corona-karma">devpost von karmakurier!</a>
+        <a href="https://devpost.com/software/corona-connect">devpost von COCO!</a>
       </p>
       <p>
         Schauen Sie auch beim
-        <a href="https://devpost.com/software/corona-connect">devpost von COCO corona connect</a> vorbei!
+        <a href="https://devpost.com/software/corona-karma">devpost von karmakurier</a> vorbei!
       </p>
     </div>
   </div>
@@ -56,10 +56,10 @@ export default {
       font-weight: bold;
 
       &.karma {
-        color: #2d3cb9;
+        color: #e73454;
       }
       &.coco {
-        color: #e73454;
+        color: #2d3cb9;
       }
     }
   }
